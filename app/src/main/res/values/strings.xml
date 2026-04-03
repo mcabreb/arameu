@@ -1,4 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- App -->
     <string name="app_name">Arameu</string>
+
+    <!-- Welcome -->
+    <string name="welcome_title">Benvinguda a Arameu</string>
+    <string name="welcome_subtitle">Descobreix l\'arameu bíblic</string>
+
+    <!-- Navigation -->
+    <string name="btn_start">Comença</string>
+    <string name="btn_continue">Continua</string>
+    <string name="btn_next">Següent</string>
+    <string name="btn_back">Enrere</string>
+    <string name="btn_review">Repassa</string>
+    <string name="btn_listen">Escolta</string>
+    <string name="btn_replay">Torna a escoltar</string>
+
+    <!-- Exercise prompts -->
+    <string name="prompt_type_transliteration">Escriu en transliteració</string>
+    <string name="prompt_listen_choose">Escolta i tria</string>
+    <string name="prompt_match_pairs">Emparella</string>
+    <string name="prompt_multiple_choice">Tria la resposta correcta</string>
+    <string name="prompt_listen_repeat">Escolta i repeteix</string>
+    <string name="prompt_script_read">Llegeix l\'escriptura</string>
+    <string name="prompt_script_write">Escriu en arameu</string>
+
+    <!-- Feedback -->
+    <string name="feedback_correct">Correcte!</string>
+    <string name="feedback_incorrect">No del tot</string>
+    <string name="feedback_try_again">Torna-ho a provar</string>
+    <string name="feedback_got_it">Sí, l\'he encertat</string>
+
+    <!-- Lesson -->
+    <string name="lesson_summary_title">Has après:</string>
+    <string name="lesson_complete">Lliçó completada</string>
+    <string name="lesson_score">Puntuació: %1$d%%</string>
+
+    <!-- Course map -->
+    <string name="course_map_title">Curs</string>
+    <string name="unit_locked">Unitat bloquejada</string>
+    <string name="unit_completed">Unitat completada</string>
+
+    <!-- Review -->
+    <string name="review_title">Repàs</string>
+    <string name="review_complete">Repàs completat</string>
+    <string name="review_items_count">Elements repassats: %1$d</string>
+
+    <!-- Progress -->
+    <string name="progress_title">Progrés</string>
+    <string name="progress_lessons_done">Lliçons completades</string>
+    <string name="progress_vocabulary">Vocabulari après</string>
+
+    <!-- Accessibility -->
+    <string name="cd_play_audio">Reprodueix àudio</string>
+    <string name="cd_correct_answer">Resposta correcta</string>
+    <string name="cd_wrong_answer">Resposta incorrecta</string>
+
+    <!-- Hebrew keyboard -->
+    <string name="install_hebrew_keyboard">Instal·la un teclat hebreu</string>
 </resources>
