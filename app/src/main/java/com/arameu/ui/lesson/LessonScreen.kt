@@ -86,6 +86,7 @@ fun LessonScreen(
                         "type_transliteration" -> TypeTransliterationExercise(
                             exercise = exercise,
                             onAnswer = { isCorrect -> viewModel.onAnswer(isCorrect) },
+                            onPlayAudio = onPlayAudio,
                         )
                         "listen_repeat" -> ListenRepeatExercise(
                             exercise = exercise,

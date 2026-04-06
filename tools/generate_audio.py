@@ -37,7 +37,7 @@ async def generate_audio(text, output_path, voice=VOICE):
     """Generate audio for a single text using edge-tts."""
     try:
         import edge_tts
-        communicate = edge_tts.Communicate(text, voice)
+        communicate = edge_tts.Communicate(text, voice, rate="-10%", volume="+50%")
         await communicate.save(str(output_path))
         return True
     except Exception as e:

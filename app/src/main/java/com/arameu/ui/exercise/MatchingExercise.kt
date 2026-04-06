@@ -59,6 +59,16 @@ fun MatchingExercise(
     var selectedLeft by remember { mutableStateOf<String?>(null) }
     var selectedRight by remember { mutableStateOf<String?>(null) }
     var incorrectFlash by remember { mutableStateOf(false) }
+    var allMatched by remember { mutableStateOf(false) }
+
+    // Complete after all pairs matched
+    LaunchedEffect(allMatched) {
+        if (allMatched) {
+            delay(500)
+            val correctOnFirst = pairs.size - mistakenPairs.distinct().size
+            onComplete(correctOnFirst == pairs.size)
+        }
+    }
 
     // Check match when both selected
     LaunchedEffect(selectedLeft, selectedRight) {
@@ -72,12 +82,9 @@ fun MatchingExercise(
                 selectedLeft = null
                 selectedRight = null
                 if (matched.size == pairs.size) {
-                    delay(500)
-                    val correctOnFirst = pairs.size - mistakenPairs.distinct().size
-                    onComplete(correctOnFirst == pairs.size)
+                    allMatched = true
                 }
             } else {
-                // Track which pairs had mistakes (by left item attempted)
                 val attemptedPairIdx = pairs.indexOfFirst { it.left == l }
                 if (attemptedPairIdx >= 0) mistakenPairs.add(attemptedPairIdx)
                 incorrectFlash = true

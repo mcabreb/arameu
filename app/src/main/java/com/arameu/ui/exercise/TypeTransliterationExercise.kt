@@ -37,6 +37,7 @@ import kotlinx.serialization.json.Json
 fun TypeTransliterationExercise(
     exercise: Exercise,
     onAnswer: (Boolean) -> Unit,
+    onPlayAudio: ((String) -> Unit)? = null,
     modifier: Modifier = Modifier,
 ) {
     val spacing = LocalSpacing.current
@@ -82,6 +83,19 @@ fun TypeTransliterationExercise(
                 color = MaterialTheme.colorScheme.onBackground,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
             )
+        }
+
+        if (exercise.promptAudioId != null && onPlayAudio != null) {
+            androidx.compose.material3.TextButton(
+                onClick = { onPlayAudio(exercise.promptAudioId) },
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            ) {
+                Text(
+                    text = stringResource(R.string.btn_listen),
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
         }
 
         Spacer(modifier = Modifier.height(spacing.elementSpacing))

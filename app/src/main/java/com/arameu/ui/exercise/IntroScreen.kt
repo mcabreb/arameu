@@ -95,11 +95,11 @@ fun IntroScreen(
         Spacer(modifier = Modifier.height(spacing.sectionSpacing))
 
         if (showDetails) {
-            IconButton(
+            androidx.compose.material3.TextButton(
                 onClick = { exercise.promptAudioId?.let { onPlayAudio(it) } },
             ) {
                 Text(
-                    text = stringResource(R.string.btn_listen),
+                    text = stringResource(R.string.btn_replay),
                     style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.primary,
                 )
