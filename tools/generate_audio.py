@@ -26,14 +26,14 @@ def slugify(text: str) -> str:
     return slug
 
 
-def load_vocabulary(content_path: Path) -> list[dict]:
+def load_vocabulary(content_path):
     """Load vocabulary from content.json."""
     with open(content_path, "r", encoding="utf-8") as f:
         data = json.load(f)
     return data.get("vocabulary", [])
 
 
-async def generate_audio(text: str, output_path: Path, voice: str = VOICE) -> bool:
+async def generate_audio(text, output_path, voice=VOICE):
     """Generate audio for a single text using edge-tts."""
     try:
         import edge_tts
@@ -46,10 +46,10 @@ async def generate_audio(text: str, output_path: Path, voice: str = VOICE) -> bo
 
 
 async def main(
-    content_path: Path = CONTENT_PATH,
-    force: bool = False,
-    unit_filter: int | None = None,
-) -> None:
+    content_path=CONTENT_PATH,
+    force=False,
+    unit_filter=None,
+):
     vocabulary = load_vocabulary(content_path)
     if unit_filter is not None:
         vocabulary = [v for v in vocabulary if v["unitId"] == unit_filter]
@@ -64,7 +64,9 @@ async def main(
         unit_id = vocab["unitId"]
         slug = slugify(vocab.get("transliteration", f"vocab-{vocab['id']}"))
         audio_id = vocab.get("audioId", slug)
-        script = vocab.get("script", vocab.get("transliteration", ""))
+        # Use transliteration for TTS input — the Hebrew voice can pronounce
+        # Latin transliterations but not Syriac Unicode characters
+        tts_text = vocab.get("transliteration", "")
 
         output_dir = AUDIO_BASE / f"unit{unit_id}"
         output_dir.mkdir(parents=True, exist_ok=True)
@@ -75,8 +77,8 @@ async def main(
             skipped += 1
             continue
 
-        logger.info(f"  GEN  {output_path} ← '{script}'")
-        if await generate_audio(script, output_path):
+        logger.info(f"  GEN  {output_path} ← '{tts_text}'")
+        if await generate_audio(tts_text, output_path):
             success += 1
         else:
             failed += 1
