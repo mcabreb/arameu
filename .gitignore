@@ -1,5 +1,4 @@
 
-
 .claude/commands/maya
 .claude/commands/colony
 .claude/commands/meadow
@@ -12,3 +11,15 @@
 .claude/commands/wax
 .claude/commands/maya.md
 .maya/
+
+# Android / Gradle
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+app/build/
