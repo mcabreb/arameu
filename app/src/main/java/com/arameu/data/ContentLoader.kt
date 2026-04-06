@@ -73,6 +73,6 @@ class ContentLoader(
         private const val ASSET_PATH = "course/content.json"
         private const val PREF_CONTENT_VERSION = "content_version"
         // Bump this number whenever content.json changes
-        private const val CURRENT_CONTENT_VERSION = 4
+        private const val CURRENT_CONTENT_VERSION = 5
     }
 }
