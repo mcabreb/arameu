@@ -17,15 +17,21 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.rememberNavController
+import com.arameu.audio.AudioManager
+import com.arameu.audio.AudioPathResolver
 import com.arameu.data.ArameuDatabase
+import com.arameu.data.ContentLoader
 import com.arameu.data.repository.CourseRepository
 import com.arameu.data.repository.ProgressRepository
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 import com.arameu.navigation.ArameuNavGraph
 import com.arameu.navigation.Routes
 import com.arameu.ui.course.CourseMapScreen
@@ -35,9 +41,14 @@ import com.arameu.ui.lesson.LessonViewModel
 import com.arameu.ui.theme.ArameuTheme
 
 class MainActivity : ComponentActivity() {
+
+    private lateinit var audioManager: AudioManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        audioManager = AudioManager(applicationContext)
 
         val prefs = getSharedPreferences("arameu_prefs", MODE_PRIVATE)
         val isFirstLaunch = !prefs.getBoolean("first_launch_done", false)
@@ -47,9 +58,16 @@ class MainActivity : ComponentActivity() {
         val courseRepository = CourseRepository(db.courseDao())
         val progressRepository = ProgressRepository(db.progressDao())
 
+        // Load content from JSON into Room on first launch
+        val contentLoader = ContentLoader(this, db.courseDao(), prefs)
+        MainScope().launch { contentLoader.loadIfNeeded() }
+
         setContent {
             ArameuTheme {
                 val navController = rememberNavController()
+                val courseMapViewModel = remember {
+                    CourseMapViewModel(courseRepository, progressRepository)
+                }
 
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     ArameuNavGraph(
@@ -67,22 +85,42 @@ class MainActivity : ComponentActivity() {
                             )
                         },
                         courseScreen = { onLessonClick ->
-                            val viewModel = CourseMapViewModel(courseRepository, progressRepository)
                             CourseMapScreen(
-                                viewModel = viewModel,
+                                viewModel = courseMapViewModel,
                                 onLessonClick = onLessonClick,
                                 modifier = Modifier.padding(innerPadding),
                             )
                         },
                         lessonScreen = { lessonId, onFinished ->
-                            val lessonViewModel = LessonViewModel(
-                                lessonId = lessonId,
-                                courseRepository = courseRepository,
-                                progressRepository = progressRepository,
-                            )
+                            val lessonViewModel = remember(lessonId) {
+                                LessonViewModel(
+                                    lessonId = lessonId,
+                                    courseRepository = courseRepository,
+                                    progressRepository = progressRepository,
+                                )
+                            }
                             LessonScreen(
                                 viewModel = lessonViewModel,
                                 onFinished = onFinished,
+                                onPlayAudio = { audioId ->
+                                    // Resolve audioId to asset path and play
+                                    // Audio IDs are like "a_aleph" → "audio/unit1/a-aleph.mp3"
+                                    // We don't know the unit from audioId alone, so try all units
+                                    val path = audioId.lowercase()
+                                        .replace("_", "-")
+                                        .replace(" ", "-")
+                                    // Try unit directories in order
+                                    for (unit in 1..3) {
+                                        val assetPath = "audio/unit$unit/$path.mp3"
+                                        try {
+                                            assets.open(assetPath).close()
+                                            audioManager.play(assetPath)
+                                            return@LessonScreen
+                                        } catch (_: Exception) {
+                                            // Try next unit
+                                        }
+                                    }
+                                },
                                 modifier = Modifier.padding(innerPadding),
                             )
                         },
@@ -90,6 +128,13 @@ class MainActivity : ComponentActivity() {
                     )
                 }
             }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (::audioManager.isInitialized) {
+            audioManager.release()
         }
     }
 }
@@ -108,7 +153,7 @@ fun WelcomeScreen(
     ) {
         // Decorative Aramaic letter
         Text(
-            text = "ܐ",
+            text = "\u0710",
             style = MaterialTheme.typography.displayLarge.copy(fontSize = 72.sp),
             color = MaterialTheme.colorScheme.primary.copy(alpha = 0.15f),
         )
@@ -124,7 +169,7 @@ fun WelcomeScreen(
         Spacer(modifier = Modifier.height(12.dp))
 
         Text(
-            text = "Arameu bíblic",
+            text = "Arameu b\u00edblic",
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.primary,
         )
@@ -132,7 +177,7 @@ fun WelcomeScreen(
         Spacer(modifier = Modifier.height(24.dp))
 
         Text(
-            text = "Un viatge per aprendre arameu bíblic, pas a pas.",
+            text = "Un viatge per aprendre arameu b\u00edblic, pas a pas.",
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f),
             modifier = Modifier.padding(horizontal = 16.dp),
@@ -152,31 +197,5 @@ fun WelcomeScreen(
                 style = MaterialTheme.typography.labelLarge,
             )
         }
-    }
-}
-
-@Composable
-fun PlaceholderLessonScreen(
-    lessonId: Int,
-    modifier: Modifier = Modifier,
-) {
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-    ) {
-        Text(
-            text = "Lliçó $lessonId",
-            style = MaterialTheme.typography.headlineLarge,
-            color = MaterialTheme.colorScheme.onBackground,
-        )
-        Text(
-            text = "Pròximament...",
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onBackground,
-            modifier = Modifier.padding(top = 12.dp),
-        )
     }
 }
