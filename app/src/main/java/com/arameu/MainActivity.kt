@@ -74,6 +74,11 @@ class MainActivity : ComponentActivity() {
                             CourseMapScreen(
                                 viewModel = courseMapViewModel,
                                 onLessonClick = onLessonClick,
+                                onShowWelcome = {
+                                    navController.navigate(Routes.WELCOME) {
+                                        popUpTo(Routes.COURSE) { inclusive = false }
+                                    }
+                                },
                                 modifier = Modifier.padding(innerPadding),
                             )
                         },

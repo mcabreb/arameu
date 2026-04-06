@@ -40,6 +40,7 @@ import com.arameu.ui.theme.LocalSpacing
 fun CourseMapScreen(
     viewModel: CourseMapViewModel,
     onLessonClick: (Int) -> Unit,
+    onShowWelcome: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     val state by viewModel.uiState.collectAsState()
@@ -98,11 +99,25 @@ fun CourseMapScreen(
                     .padding(horizontal = spacing.contentPadding),
                 verticalArrangement = Arrangement.spacedBy(spacing.elementSpacing),
             ) {
-                item { Spacer(modifier = Modifier.height(spacing.sectionSpacing)) }
+                item {
+                    Spacer(modifier = Modifier.height(spacing.elementSpacing))
+                    TextButton(
+                        onClick = onShowWelcome,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Text(
+                            text = "\u0710  Arameu",
+                            style = MaterialTheme.typography.titleLarge,
+                            color = MaterialTheme.colorScheme.primary.copy(alpha = 0.6f),
+                        )
+                    }
+                    Spacer(modifier = Modifier.height(spacing.elementSpacing))
+                }
 
                 for (unit in s.units) {
                     val completedCount = unit.lessons.count { it.isCompleted }
                     val totalCount = unit.lessons.size
+                    val hasAnyUnlocked = unit.lessons.any { it.isUnlocked || it.isCompleted }
                     val isExpanded = expandedUnits[unit.id] ?: false
 
                     item(key = "unit-${unit.id}") {
@@ -111,6 +126,7 @@ fun CourseMapScreen(
                             completedCount = completedCount,
                             totalCount = totalCount,
                             isExpanded = isExpanded,
+                            isLocked = !hasAnyUnlocked,
                             onToggle = {
                                 expandedUnits[unit.id] = !isExpanded
                             },
@@ -162,21 +178,24 @@ private fun UnitHeader(
     completedCount: Int,
     totalCount: Int,
     isExpanded: Boolean,
+    isLocked: Boolean = false,
     onToggle: () -> Unit,
 ) {
     val spacing = LocalSpacing.current
     val allDone = completedCount == totalCount
+    val headerAlpha = if (isLocked) 0.4f else 1f
 
     Card(
         modifier = Modifier
             .fillMaxWidth()
+            .alpha(headerAlpha)
             .clickable(onClick = onToggle),
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(
-            containerColor = if (allDone) {
-                MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f)
-            } else {
-                MaterialTheme.colorScheme.surface
+            containerColor = when {
+                allDone -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f)
+                isLocked -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.2f)
+                else -> MaterialTheme.colorScheme.surface
             },
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = if (isExpanded) 2.dp else 0.dp),
@@ -195,17 +214,19 @@ private fun UnitHeader(
                     color = MaterialTheme.colorScheme.onBackground,
                 )
                 Text(
-                    text = "$completedCount / $totalCount",
+                    text = if (isLocked) "\uD83D\uDD12 $totalCount lliçons" else "$completedCount / $totalCount",
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
                     modifier = Modifier.padding(top = 2.dp),
                 )
             }
-            Text(
-                text = if (isExpanded) "\u25B2" else "\u25BC",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.4f),
-            )
+            if (!isLocked) {
+                Text(
+                    text = if (isExpanded) "\u25B2" else "\u25BC",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.4f),
+                )
+            }
         }
     }
 }
