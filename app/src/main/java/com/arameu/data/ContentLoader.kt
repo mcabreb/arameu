@@ -17,7 +17,8 @@ class ContentLoader(
     private val json = Json { ignoreUnknownKeys = true }
 
     suspend fun loadIfNeeded() {
-        if (prefs.getBoolean(PREF_CONTENT_LOADED, false)) return
+        val loadedVersion = prefs.getInt(PREF_CONTENT_VERSION, 0)
+        if (loadedVersion >= CURRENT_CONTENT_VERSION) return
 
         withContext(Dispatchers.IO) {
             try {
@@ -28,7 +29,7 @@ class ContentLoader(
 
                 val content = json.decodeFromString<ContentDto>(raw)
                 populate(content)
-                prefs.edit().putBoolean(PREF_CONTENT_LOADED, true).apply()
+                prefs.edit().putInt(PREF_CONTENT_VERSION, CURRENT_CONTENT_VERSION).apply()
             } catch (e: Exception) {
                 Log.e(TAG, "Failed to load content: ${e.message}", e)
             }
@@ -70,6 +71,8 @@ class ContentLoader(
     companion object {
         private const val TAG = "ContentLoader"
         private const val ASSET_PATH = "course/content.json"
-        private const val PREF_CONTENT_LOADED = "content_loaded"
+        private const val PREF_CONTENT_VERSION = "content_version"
+        // Bump this number whenever content.json changes
+        private const val CURRENT_CONTENT_VERSION = 3
     }
 }
