@@ -1,9 +1,5 @@
 package com.arameu.ui.course
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.tween
-import androidx.compose.animation.expandVertically
-import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -121,32 +117,24 @@ fun CourseMapScreen(
                         )
                     }
 
-                    item(key = "lessons-${unit.id}") {
-                        AnimatedVisibility(
-                            visible = isExpanded,
-                            enter = expandVertically(tween(300)),
-                            exit = shrinkVertically(tween(300)),
-                        ) {
-                            Column(
-                                verticalArrangement = Arrangement.spacedBy(spacing.elementSpacing),
-                            ) {
-                                unit.lessons.forEach { lesson ->
-                                    val isCurrent = lesson.id == s.currentLessonId
-                                    LessonCard(
-                                        lesson = lesson,
-                                        isCurrent = isCurrent,
-                                        onClick = if (lesson.isUnlocked || lesson.isCompleted) {
-                                            { onLessonClick(lesson.id) }
-                                        } else {
-                                            null
-                                        },
-                                    )
-                                }
+                    if (isExpanded) {
+                        for (lesson in unit.lessons) {
+                            item(key = "lesson-${lesson.id}") {
+                                val isCurrent = lesson.id == s.currentLessonId
+                                LessonCard(
+                                    lesson = lesson,
+                                    isCurrent = isCurrent,
+                                    onClick = if (lesson.isUnlocked || lesson.isCompleted) {
+                                        { onLessonClick(lesson.id) }
+                                    } else {
+                                        null
+                                    },
+                                )
                             }
                         }
                     }
 
-                    item { Spacer(modifier = Modifier.height(spacing.elementSpacing)) }
+                    item(key = "spacer-${unit.id}") { Spacer(modifier = Modifier.height(spacing.elementSpacing)) }
                 }
 
                 item {
