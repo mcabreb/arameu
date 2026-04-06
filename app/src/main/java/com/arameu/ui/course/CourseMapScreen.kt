@@ -1,5 +1,9 @@
 package com.arameu.ui.course
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,9 +14,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
@@ -26,14 +28,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.arameu.R
 import com.arameu.ui.theme.LocalSpacing
 
@@ -46,6 +49,7 @@ fun CourseMapScreen(
     val state by viewModel.uiState.collectAsState()
     val spacing = LocalSpacing.current
     var showResetDialog by remember { mutableStateOf(false) }
+    val expandedUnits = remember { mutableStateMapOf<Int, Boolean>() }
 
     if (showResetDialog) {
         AlertDialog(
@@ -79,18 +83,13 @@ fun CourseMapScreen(
         is CourseMapUiState.Ready -> {
             val listState = rememberLazyListState()
 
-            // Auto-scroll to current lesson
+            // Auto-expand the unit containing the current lesson
             LaunchedEffect(s.currentLessonId) {
                 if (s.currentLessonId != null) {
-                    var index = 0
                     for (unit in s.units) {
-                        index++ // unit header
-                        for (lesson in unit.lessons) {
-                            if (lesson.id == s.currentLessonId) {
-                                listState.animateScrollToItem(index)
-                                return@LaunchedEffect
-                            }
-                            index++
+                        val hasCurrent = unit.lessons.any { it.id == s.currentLessonId }
+                        if (hasCurrent) {
+                            expandedUnits[unit.id] = true
                         }
                     }
                 }
@@ -106,29 +105,48 @@ fun CourseMapScreen(
                 item { Spacer(modifier = Modifier.height(spacing.sectionSpacing)) }
 
                 for (unit in s.units) {
-                    item(key = "unit-${unit.id}") {
-                        UnitHeader(unit = unit)
-                    }
+                    val completedCount = unit.lessons.count { it.isCompleted }
+                    val totalCount = unit.lessons.size
+                    val isExpanded = expandedUnits[unit.id] ?: false
 
-                    items(
-                        items = unit.lessons,
-                        key = { "lesson-${it.id}" },
-                    ) { lesson ->
-                        val isCurrent = lesson.id == s.currentLessonId
-                        LessonCard(
-                            lesson = lesson,
-                            isCurrent = isCurrent,
-                            onClick = if (lesson.isUnlocked && !lesson.isCompleted) {
-                                { onLessonClick(lesson.id) }
-                            } else if (lesson.isCompleted) {
-                                { onLessonClick(lesson.id) }
-                            } else {
-                                null
+                    item(key = "unit-${unit.id}") {
+                        UnitHeader(
+                            unit = unit,
+                            completedCount = completedCount,
+                            totalCount = totalCount,
+                            isExpanded = isExpanded,
+                            onToggle = {
+                                expandedUnits[unit.id] = !isExpanded
                             },
                         )
                     }
 
-                    item { Spacer(modifier = Modifier.height(spacing.cardSpacing)) }
+                    item(key = "lessons-${unit.id}") {
+                        AnimatedVisibility(
+                            visible = isExpanded,
+                            enter = expandVertically(tween(300)),
+                            exit = shrinkVertically(tween(300)),
+                        ) {
+                            Column(
+                                verticalArrangement = Arrangement.spacedBy(spacing.elementSpacing),
+                            ) {
+                                unit.lessons.forEach { lesson ->
+                                    val isCurrent = lesson.id == s.currentLessonId
+                                    LessonCard(
+                                        lesson = lesson,
+                                        isCurrent = isCurrent,
+                                        onClick = if (lesson.isUnlocked || lesson.isCompleted) {
+                                            { onLessonClick(lesson.id) }
+                                        } else {
+                                            null
+                                        },
+                                    )
+                                }
+                            }
+                        }
+                    }
+
+                    item { Spacer(modifier = Modifier.height(spacing.elementSpacing)) }
                 }
 
                 item {
@@ -151,16 +169,57 @@ fun CourseMapScreen(
 }
 
 @Composable
-private fun UnitHeader(unit: UnitWithProgress) {
+private fun UnitHeader(
+    unit: UnitWithProgress,
+    completedCount: Int,
+    totalCount: Int,
+    isExpanded: Boolean,
+    onToggle: () -> Unit,
+) {
     val spacing = LocalSpacing.current
-    Text(
-        text = unit.titleCa,
-        style = MaterialTheme.typography.headlineMedium,
-        color = MaterialTheme.colorScheme.onBackground,
+    val allDone = completedCount == totalCount
+
+    Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = spacing.sectionSpacing, bottom = spacing.elementSpacing),
-    )
+            .clickable(onClick = onToggle),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = if (allDone) {
+                MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f)
+            } else {
+                MaterialTheme.colorScheme.surface
+            },
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = if (isExpanded) 2.dp else 0.dp),
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = spacing.cardSpacing, vertical = 14.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = unit.titleCa,
+                    style = MaterialTheme.typography.titleLarge,
+                    color = MaterialTheme.colorScheme.onBackground,
+                )
+                Text(
+                    text = "$completedCount / $totalCount",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
+                    modifier = Modifier.padding(top = 2.dp),
+                )
+            }
+            Text(
+                text = if (isExpanded) "\u25B2" else "\u25BC",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.4f),
+            )
+        }
+    }
 }
 
 @Composable
