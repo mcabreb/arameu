@@ -185,12 +185,20 @@ private fun LessonCard(
                 }
             }
             if (lesson.isCompleted) {
-                Text(
-                    text = "✓",
-                    style = MaterialTheme.typography.titleLarge,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
-                    modifier = Modifier.size(spacing.touchTarget),
-                )
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(
+                        text = "\u2713",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
+                    )
+                    lesson.score?.let { score ->
+                        Text(
+                            text = "$score%",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.3f),
+                        )
+                    }
+                }
             }
         }
     }

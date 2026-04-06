@@ -75,6 +75,7 @@ fun LessonScreen(
                         "multiple_choice" -> MultipleChoiceExercise(
                             exercise = exercise,
                             onAnswer = { isCorrect -> viewModel.onAnswer(isCorrect) },
+                            onPlayAudio = onPlayAudio,
                         )
                         "matching" -> MatchingExercise(
                             exercise = exercise,

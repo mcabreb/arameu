@@ -4,25 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.rememberNavController
 import androidx.lifecycle.lifecycleScope
 import com.arameu.audio.AudioManager
@@ -38,6 +24,7 @@ import com.arameu.ui.course.CourseMapViewModel
 import com.arameu.ui.lesson.LessonScreen
 import com.arameu.ui.lesson.LessonViewModel
 import com.arameu.ui.theme.ArameuTheme
+import com.arameu.ui.welcome.WelcomeScreen
 
 class MainActivity : ComponentActivity() {
 
@@ -134,67 +121,6 @@ class MainActivity : ComponentActivity() {
         super.onDestroy()
         if (::audioManager.isInitialized) {
             audioManager.release()
-        }
-    }
-}
-
-@Composable
-fun WelcomeScreen(
-    onContinue: () -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(32.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-    ) {
-        // Decorative Aramaic letter
-        Text(
-            text = "\u0710",
-            style = MaterialTheme.typography.displayLarge.copy(fontSize = 72.sp),
-            color = MaterialTheme.colorScheme.primary.copy(alpha = 0.15f),
-        )
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        Text(
-            text = stringResource(R.string.welcome_title),
-            style = MaterialTheme.typography.headlineLarge,
-            color = MaterialTheme.colorScheme.onBackground,
-        )
-
-        Spacer(modifier = Modifier.height(12.dp))
-
-        Text(
-            text = stringResource(R.string.welcome_subtitle),
-            style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.primary,
-        )
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        Text(
-            text = stringResource(R.string.welcome_description),
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f),
-            modifier = Modifier.padding(horizontal = 16.dp),
-        )
-
-        Spacer(modifier = Modifier.weight(1f))
-
-        Button(
-            onClick = onContinue,
-            modifier = Modifier.fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.primary,
-            ),
-        ) {
-            Text(
-                text = stringResource(R.string.btn_start),
-                style = MaterialTheme.typography.labelLarge,
-            )
         }
     }
 }

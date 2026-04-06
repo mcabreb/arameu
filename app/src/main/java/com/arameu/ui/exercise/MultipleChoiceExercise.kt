@@ -5,12 +5,14 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,7 +23,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.arameu.R
 import com.arameu.data.entity.Exercise
 import com.arameu.ui.theme.LocalSpacing
 import com.arameu.ui.theme.Terracotta
@@ -32,6 +36,7 @@ import kotlinx.serialization.json.Json
 fun MultipleChoiceExercise(
     exercise: Exercise,
     onAnswer: (Boolean) -> Unit,
+    onPlayAudio: ((String) -> Unit)? = null,
     modifier: Modifier = Modifier,
 ) {
     val spacing = LocalSpacing.current
@@ -58,12 +63,27 @@ fun MultipleChoiceExercise(
             .padding(spacing.contentPadding),
         verticalArrangement = Arrangement.spacedBy(spacing.cardSpacing),
     ) {
-        Text(
-            text = exercise.promptText,
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.onBackground,
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(bottom = spacing.elementSpacing),
-        )
+        ) {
+            Text(
+                text = exercise.promptText,
+                style = MaterialTheme.typography.headlineSmall,
+                color = MaterialTheme.colorScheme.onBackground,
+                modifier = Modifier.weight(1f),
+            )
+            if (exercise.promptAudioId != null && onPlayAudio != null) {
+                IconButton(
+                    onClick = { onPlayAudio(exercise.promptAudioId) },
+                ) {
+                    Text(
+                        text = "\uD83D\uDD0A",
+                        style = MaterialTheme.typography.titleLarge,
+                    )
+                }
+            }
+        }
 
         exercise.promptScript?.let { script ->
             Text(

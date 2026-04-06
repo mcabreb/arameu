@@ -98,7 +98,11 @@ fun IntroScreen(
             IconButton(
                 onClick = { exercise.promptAudioId?.let { onPlayAudio(it) } },
             ) {
-                Text("🔊", style = MaterialTheme.typography.headlineMedium)
+                Text(
+                    text = stringResource(R.string.btn_listen),
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.primary,
+                )
             }
         }
 
