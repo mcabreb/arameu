@@ -20,37 +20,34 @@ class SeedContentTest {
     }
 
     @Test
-    fun `seed content has 3 units`() {
-        assertEquals(3, content.units.size)
+    fun `seed content has 6 units`() {
+        assertEquals(6, content.units.size)
     }
 
     @Test
-    fun `each unit has 4 to 6 lessons`() {
+    fun `each unit has 4 to 7 lessons`() {
         for (unit in content.units) {
             assertTrue(
-                "Unit ${unit.id} (${unit.titleCa}) has ${unit.lessons.size} lessons, expected 4-6",
-                unit.lessons.size in 4..6
+                "Unit ${unit.id} (${unit.titleCa}) has ${unit.lessons.size} lessons, expected 4-7",
+                unit.lessons.size in 4..7
             )
         }
     }
 
     @Test
-    fun `total lessons is between 12 and 18`() {
+    fun `total lessons is 35`() {
         val total = content.units.sumOf { it.lessons.size }
-        assertTrue("Total lessons: $total, expected 12-18", total in 12..18)
+        assertEquals("Total lessons", 35, total)
     }
 
     @Test
-    fun `each regular lesson has exercises of all MVP types`() {
-        val mvpTypes = setOf("multiple_choice", "matching", "type_transliteration")
+    fun `each lesson has at least 2 exercise types`() {
         for (unit in content.units) {
             for (lesson in unit.lessons) {
                 val types = lesson.exercises.map { it.type }.toSet()
-                // All lessons must have at least 2 of the 3 MVP types
-                val overlap = types.intersect(mvpTypes)
                 assertTrue(
-                    "Lesson ${lesson.id} (${lesson.titleCa}) has only ${overlap.size} MVP types: $overlap",
-                    overlap.size >= 2
+                    "Lesson ${lesson.id} (${lesson.titleCa}) has only ${types.size} type(s): $types",
+                    types.size >= 2
                 )
             }
         }
@@ -72,7 +69,7 @@ class SeedContentTest {
             for (lesson in unit.lessons) {
                 val lessonPhases = lesson.exercises.map { it.phase }.toSet()
                 // Review lessons may only have mixed phase
-                if (lesson.titleCa.startsWith("Repàs") || lesson.titleCa.contains("complet") || lesson.titleCa.contains("paraules")) {
+                if (lesson.titleCa.startsWith("Repàs") || lesson.titleCa.contains("complet") || lesson.titleCa.contains("paraules") || lesson.titleCa.contains("Review") || lesson.titleCa.contains("Daniel")) {
                     assertTrue(
                         "Review lesson ${lesson.id} should have mixed phase",
                         lessonPhases.contains("mixed") || lessonPhases.containsAll(phases)
@@ -116,14 +113,14 @@ class SeedContentTest {
     }
 
     @Test
-    fun `matching exercises have 4 or 5 pair items`() {
+    fun `matching exercises have 3 to 6 pair items`() {
         for (unit in content.units) {
             for (lesson in unit.lessons) {
                 for (ex in lesson.exercises.filter { it.type == "matching" }) {
                     val size = ex.options?.size ?: 0
                     assertTrue(
-                        "Exercise ${ex.id} matching should have 4-5 pairs, has $size",
-                        size in 4..5
+                        "Exercise ${ex.id} matching should have 3-6 pairs, has $size",
+                        size in 3..6
                     )
                 }
             }

@@ -26,9 +26,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.arameu.R
 import com.arameu.ui.exercise.IntroScreen
+import com.arameu.ui.exercise.ListenChooseExercise
 import com.arameu.ui.exercise.ListenRepeatExercise
 import com.arameu.ui.exercise.MatchingExercise
 import com.arameu.ui.exercise.MultipleChoiceExercise
+import com.arameu.ui.exercise.ScriptWriteExercise
+import com.arameu.ui.exercise.SentenceBuildExercise
 import com.arameu.ui.exercise.SummaryScreen
 import com.arameu.ui.exercise.TypeTransliterationExercise
 import com.arameu.ui.theme.LocalSpacing
@@ -114,6 +117,21 @@ fun LessonScreen(
                             exercise = exercise,
                             onPlayAudio = onPlayAudio,
                             onAnswer = { viewModel.onAnswer(true) },
+                        )
+                        "listen_choose" -> ListenChooseExercise(
+                            exercise = exercise,
+                            onAnswer = { isCorrect -> viewModel.onAnswer(isCorrect) },
+                            onPlayAudio = onPlayAudio,
+                        )
+                        "script_write" -> ScriptWriteExercise(
+                            exercise = exercise,
+                            onAnswer = { isCorrect -> viewModel.onAnswer(isCorrect) },
+                            onPlayAudio = onPlayAudio,
+                        )
+                        "sentence_build" -> SentenceBuildExercise(
+                            exercise = exercise,
+                            onAnswer = { isCorrect -> viewModel.onAnswer(isCorrect) },
+                            onPlayAudio = onPlayAudio,
                         )
                         else -> MultipleChoiceExercise(
                             exercise = exercise,

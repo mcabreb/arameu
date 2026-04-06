@@ -225,6 +225,308 @@
           ]
         }
       ]
+    },
+    {
+      "id": 4,
+      "level": "vocabulary",
+      "titleCa": "Primeres paraules i salutacions",
+      "order": 4,
+      "lessons": [
+        {
+          "id": 16,
+          "titleCa": "Números 1-5",
+          "order": 1,
+          "exercises": [
+            {"id": 100, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "Què vol dir 'khad'?", "promptAudioId": "a_khad", "promptScript": "אחד", "correctAnswer": "u (1)", "acceptedVariants": ["u", "1", "un", "u (1)"], "options": ["u (1)", "dos (2)", "tres (3)", "quatre (4)"]},
+            {"id": 101, "phase": "intro", "type": "multiple_choice", "order": 2, "promptText": "Què vol dir 'tren'?", "promptAudioId": "a_tren", "promptScript": "תרין", "correctAnswer": "dos (2)", "acceptedVariants": ["dos", "2", "dos (2)"], "options": ["dos (2)", "u (1)", "tres (3)", "cinc (5)"]},
+            {"id": 102, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada número amb el seu valor", "promptAudioId": null, "promptScript": null, "correctAnswer": "khad-1", "acceptedVariants": null, "options": ["khad|1", "tren|2", "tlata|3", "arba|4", "khamsha|5"]},
+            {"id": 103, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu el número que sents", "promptAudioId": "a_tlata", "promptScript": "תלתא", "correctAnswer": "tlata", "acceptedVariants": ["tlata", "tlata"], "options": null},
+            {"id": 104, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quin és el número 4 en arameu?", "promptAudioId": null, "promptScript": null, "correctAnswer": "arba", "acceptedVariants": ["arba"], "options": ["arba", "khamsha", "tlata", "tren"]},
+            {"id": 105, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el número que sents", "promptAudioId": "a_khamsha", "promptScript": "חמשא", "correctAnswer": "khamsha", "acceptedVariants": ["khamsha", "hamsha"], "options": null},
+            {"id": 106, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'khad, tren, tlata'", "promptAudioId": "a_khad", "promptScript": "אחד", "correctAnswer": "khad", "acceptedVariants": ["khad"], "options": null}
+          ]
+        },
+        {
+          "id": 17,
+          "titleCa": "Números 6-10",
+          "order": 2,
+          "exercises": [
+            {"id": 107, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "Què vol dir 'shetta'?", "promptAudioId": "a_shetta", "promptScript": "שתא", "correctAnswer": "sis (6)", "acceptedVariants": ["sis", "6", "sis (6)"], "options": ["sis (6)", "set (7)", "vuit (8)", "nou (9)"]},
+            {"id": 108, "phase": "intro", "type": "multiple_choice", "order": 2, "promptText": "Quin número és 'asra'?", "promptAudioId": "a_asra", "promptScript": "עשרא", "correctAnswer": "deu (10)", "acceptedVariants": ["deu", "10", "deu (10)"], "options": ["deu (10)", "nou (9)", "vuit (8)", "set (7)"]},
+            {"id": 109, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada número amb el seu valor", "promptAudioId": null, "promptScript": null, "correctAnswer": "shetta-6", "acceptedVariants": null, "options": ["shetta|6", "shva|7", "tmanya|8", "tsha|9", "asra|10"]},
+            {"id": 110, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu el número que sents", "promptAudioId": "a_shva", "promptScript": "שבעא", "correctAnswer": "shva", "acceptedVariants": ["shva", "shba"], "options": null},
+            {"id": 111, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quin és el número 8 en arameu?", "promptAudioId": null, "promptScript": null, "correctAnswer": "tmanya", "acceptedVariants": ["tmanya"], "options": ["tmanya", "tsha", "shva", "shetta"]},
+            {"id": 112, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el número que sents", "promptAudioId": "a_tsha", "promptScript": "תשעא", "correctAnswer": "tsha", "acceptedVariants": ["tsha", "tisha"], "options": null},
+            {"id": 113, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'asra'", "promptAudioId": "a_asra", "promptScript": "עשרא", "correctAnswer": "asra", "acceptedVariants": ["asra"], "options": null}
+          ]
+        },
+        {
+          "id": 18,
+          "titleCa": "Salutacions i cortesia",
+          "order": 3,
+          "exercises": [
+            {"id": 114, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "Escolta i tria el significat de la paraula", "promptAudioId": "a_ken", "promptScript": "כן", "correctAnswer": "sí", "acceptedVariants": ["sí", "si"], "options": ["sí", "no", "bo", "hola"]},
+            {"id": 115, "phase": "intro", "type": "listen_choose", "order": 2, "promptText": "Escolta i tria la paraula correcta", "promptAudioId": "a_la", "promptScript": "לא", "correctAnswer": "la", "acceptedVariants": ["la"], "options": ["la", "ken", "basima", "bshem"]},
+            {"id": 116, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada paraula amb el seu significat", "promptAudioId": null, "promptScript": null, "correctAnswer": "ken-sí", "acceptedVariants": null, "options": ["ken|sí", "la|no", "basima|bo", "bshem|en el nom de"]},
+            {"id": 117, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Com es diu 'bo' en arameu?", "promptAudioId": "a_basima", "promptScript": "בסימא", "correctAnswer": "basima", "acceptedVariants": ["basima"], "options": null},
+            {"id": 118, "phase": "mixed", "type": "listen_choose", "order": 1, "promptText": "Escolta i tria la paraula que sents", "promptAudioId": "a_bshem", "promptScript": "בשם", "correctAnswer": "bshem", "acceptedVariants": ["bshem"], "options": ["bshem", "ken", "la", "basima"]},
+            {"id": 119, "phase": "mixed", "type": "multiple_choice", "order": 2, "promptText": "Com es diu 'no' en arameu?", "promptAudioId": null, "promptScript": null, "correctAnswer": "la", "acceptedVariants": ["la"], "options": ["la", "ken", "basima", "bshem"]},
+            {"id": 120, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'ken'", "promptAudioId": "a_ken", "promptScript": "כן", "correctAnswer": "ken", "acceptedVariants": ["ken"], "options": null}
+          ]
+        },
+        {
+          "id": 19,
+          "titleCa": "Persones",
+          "order": 4,
+          "exercises": [
+            {"id": 121, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "Què vol dir 'malka'?", "promptAudioId": "a_malka", "promptScript": "מלכא", "correctAnswer": "rei", "acceptedVariants": ["rei"], "options": ["rei", "reina", "home", "dona"]},
+            {"id": 122, "phase": "intro", "type": "multiple_choice", "order": 2, "promptText": "Què vol dir 'atta'?", "promptAudioId": "a_atta", "promptScript": "אתתא", "correctAnswer": "dona", "acceptedVariants": ["dona"], "options": ["dona", "home", "reina", "persona"]},
+            {"id": 123, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada paraula amb el seu significat", "promptAudioId": null, "promptScript": null, "correctAnswer": "malka-rei", "acceptedVariants": null, "options": ["malka|rei", "malkta|reina", "gavra|home", "atta|dona", "enash|persona"]},
+            {"id": 124, "phase": "guided", "type": "script_write", "order": 2, "promptText": "Escriu 'malka' en escriptura hebrea quadrada", "promptAudioId": "a_malka", "promptScript": "malka", "correctAnswer": "מלכא", "acceptedVariants": null, "options": null},
+            {"id": 125, "phase": "mixed", "type": "script_write", "order": 1, "promptText": "Escriu 'gavra' en escriptura hebrea quadrada", "promptAudioId": "a_gavra", "promptScript": "gavra", "correctAnswer": "גברא", "acceptedVariants": null, "options": null},
+            {"id": 126, "phase": "mixed", "type": "multiple_choice", "order": 2, "promptText": "Quin mot significa 'persona' en general?", "promptAudioId": null, "promptScript": null, "correctAnswer": "enash", "acceptedVariants": ["enash"], "options": ["enash", "gavra", "atta", "malka"]},
+            {"id": 127, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'malkta'", "promptAudioId": "a_malkta", "promptScript": "מלכתא", "correctAnswer": "malkta", "acceptedVariants": ["malkta"], "options": null}
+          ]
+        },
+        {
+          "id": 20,
+          "titleCa": "L'arrel revelada: m-l-k",
+          "order": 5,
+          "exercises": [
+            {"id": 128, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "Quines paraules comparteixen l'arrel m-l-k?", "promptAudioId": null, "promptScript": null, "correctAnswer": "malka, malkta, malkut", "acceptedVariants": ["malka, malkta, malkut"], "options": ["malka, malkta, malkut", "gavra, atta, enash", "mayya, nura, ruakh", "ken, la, basima"]},
+            {"id": 129, "phase": "intro", "type": "multiple_choice", "order": 2, "promptText": "Què vol dir 'malkut'?", "promptAudioId": "a_malkut", "promptScript": "מלכות", "correctAnswer": "regne", "acceptedVariants": ["regne"], "options": ["regne", "rei", "reina", "coronació"]},
+            {"id": 130, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada forma de l'arrel m-l-k amb el seu significat", "promptAudioId": null, "promptScript": null, "correctAnswer": "malka-rei", "acceptedVariants": null, "options": ["malka|rei", "malkta|reina", "malkut|regne"]},
+            {"id": 131, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu la paraula per 'regne'", "promptAudioId": "a_malkut", "promptScript": "מלכות", "correctAnswer": "malkut", "acceptedVariants": ["malkut"], "options": null},
+            {"id": 132, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quin sufix indica femení en 'malkta'?", "promptAudioId": null, "promptScript": null, "correctAnswer": "-ta", "acceptedVariants": ["-ta", "ta"], "options": ["-ta", "-ut", "-a", "-i"]},
+            {"id": 133, "phase": "mixed", "type": "script_write", "order": 2, "promptText": "Escriu 'malkut' en escriptura hebrea quadrada", "promptAudioId": "a_malkut", "promptScript": "malkut", "correctAnswer": "מלכות", "acceptedVariants": null, "options": null},
+            {"id": 134, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'malkut'", "promptAudioId": "a_malkut", "promptScript": "מלכות", "correctAnswer": "malkut", "acceptedVariants": ["malkut"], "options": null}
+          ]
+        },
+        {
+          "id": 21,
+          "titleCa": "Natura",
+          "order": 6,
+          "exercises": [
+            {"id": 135, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "Què vol dir 'mayya'?", "promptAudioId": "a_mayya", "promptScript": "מיא", "correctAnswer": "aigua", "acceptedVariants": ["aigua"], "options": ["aigua", "foc", "vent", "cel"]},
+            {"id": 136, "phase": "intro", "type": "multiple_choice", "order": 2, "promptText": "Què vol dir 'nura'?", "promptAudioId": "a_nura", "promptScript": "נורא", "correctAnswer": "foc", "acceptedVariants": ["foc"], "options": ["foc", "aigua", "vent", "terra"]},
+            {"id": 137, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada paraula de la natura amb el seu significat", "promptAudioId": null, "promptScript": null, "correctAnswer": "mayya-aigua", "acceptedVariants": null, "options": ["mayya|aigua", "nura|foc", "ruakh|vent/esperit", "shmaya|cel", "ar'a|terra"]},
+            {"id": 138, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu la paraula que sents", "promptAudioId": "a_ruakh", "promptScript": "רוחא", "correctAnswer": "ruakh", "acceptedVariants": ["ruakh", "ruach"], "options": null},
+            {"id": 139, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quins dos significats té 'ruakh'?", "promptAudioId": null, "promptScript": null, "correctAnswer": "vent i esperit", "acceptedVariants": ["vent i esperit", "vent, esperit"], "options": ["vent i esperit", "foc i llum", "dia i nit", "cel i terra"]},
+            {"id": 140, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu la paraula per 'foc'", "promptAudioId": null, "promptScript": null, "correctAnswer": "nura", "acceptedVariants": ["nura"], "options": null},
+            {"id": 141, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'mayya'", "promptAudioId": "a_mayya", "promptScript": "מיא", "correctAnswer": "mayya", "acceptedVariants": ["mayya", "maya"], "options": null}
+          ]
+        },
+        {
+          "id": 22,
+          "titleCa": "Repàs: Primeres paraules",
+          "order": 7,
+          "exercises": [
+            {"id": 142, "phase": "mixed", "type": "matching", "order": 1, "promptText": "Relaciona els números de l'1 al 5", "promptAudioId": null, "promptScript": null, "correctAnswer": "khad-1", "acceptedVariants": null, "options": ["khad|1", "tren|2", "tlata|3", "arba|4", "khamsha|5"]},
+            {"id": 143, "phase": "mixed", "type": "matching", "order": 2, "promptText": "Relaciona els números del 6 al 10", "promptAudioId": null, "promptScript": null, "correctAnswer": "shetta-6", "acceptedVariants": null, "options": ["shetta|6", "shva|7", "tmanya|8", "tsha|9", "asra|10"]},
+            {"id": 144, "phase": "mixed", "type": "multiple_choice", "order": 3, "promptText": "Com es diu 'reina' en arameu?", "promptAudioId": null, "promptScript": null, "correctAnswer": "malkta", "acceptedVariants": ["malkta"], "options": ["malkta", "malka", "enash", "atta"]},
+            {"id": 145, "phase": "mixed", "type": "multiple_choice", "order": 4, "promptText": "Quina paraula significa 'foc'?", "promptAudioId": null, "promptScript": null, "correctAnswer": "nura", "acceptedVariants": ["nura"], "options": ["nura", "mayya", "ruakh", "ar'a"]},
+            {"id": 146, "phase": "mixed", "type": "type_transliteration", "order": 5, "promptText": "Escriu el número 7 en arameu", "promptAudioId": null, "promptScript": null, "correctAnswer": "shva", "acceptedVariants": ["shva", "shba"], "options": null},
+            {"id": 147, "phase": "mixed", "type": "listen_repeat", "order": 6, "promptText": "Escolta i repeteix: 'ken'", "promptAudioId": "a_ken", "promptScript": "כן", "correctAnswer": "ken", "acceptedVariants": ["ken"], "options": null}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "level": "roots",
+      "titleCa": "Arrels i famílies de paraules",
+      "order": 5,
+      "lessons": [
+        {
+          "id": 23,
+          "titleCa": "Arrel k-t-b (escriptura)",
+          "order": 1,
+          "exercises": [
+            {"id": 148, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "Quin és el significat de l'arrel k-t-b?", "promptAudioId": null, "promptScript": null, "correctAnswer": "escriure", "acceptedVariants": ["escriure"], "options": ["escriure", "dir", "llegir", "caminar"]},
+            {"id": 149, "phase": "intro", "type": "multiple_choice", "order": 2, "promptText": "Què vol dir 'katav'?", "promptAudioId": "a_katav", "promptScript": "כתב", "correctAnswer": "ell va escriure", "acceptedVariants": ["va escriure", "ell va escriure"], "options": ["ell va escriure", "ell va llegir", "ell va dir", "ell va donar"]},
+            {"id": 150, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada forma de k-t-b amb el seu significat", "promptAudioId": null, "promptScript": null, "correctAnswer": "ktav-escriptura", "acceptedVariants": null, "options": ["ktav|escriptura", "katav|ell va escriure", "katba|escriba", "kitba|document"]},
+            {"id": 151, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu la paraula per 'escriba'", "promptAudioId": "a_katba", "promptScript": "כתבא", "correctAnswer": "katba", "acceptedVariants": ["katba"], "options": null},
+            {"id": 152, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quina paraula significa 'document'?", "promptAudioId": null, "promptScript": null, "correctAnswer": "kitba", "acceptedVariants": ["kitba"], "options": ["kitba", "ktav", "katba", "katav"]},
+            {"id": 153, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu la paraula per 'escriptura' (nom abstracte)", "promptAudioId": "a_ktav", "promptScript": "כתב", "correctAnswer": "ktav", "acceptedVariants": ["ktav"], "options": null},
+            {"id": 154, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'katav'", "promptAudioId": "a_katav", "promptScript": "כתב", "correctAnswer": "katav", "acceptedVariants": ["katav"], "options": null}
+          ]
+        },
+        {
+          "id": 24,
+          "titleCa": "Arrel sh-l-m (pau)",
+          "order": 2,
+          "exercises": [
+            {"id": 155, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "Ja coneixes 'shlama'. Quina arrel comparteix?", "promptAudioId": null, "promptScript": null, "correctAnswer": "sh-l-m", "acceptedVariants": ["sh-l-m", "shlm"], "options": ["sh-l-m", "k-t-b", "a-m-r", "q-r-'"]},
+            {"id": 156, "phase": "intro", "type": "multiple_choice", "order": 2, "promptText": "Què vol dir 'shlem'?", "promptAudioId": "a_shlem", "promptScript": "שלם", "correctAnswer": "complet, sencer", "acceptedVariants": ["complet", "sencer", "complet, sencer"], "options": ["complet, sencer", "trencat", "petit", "gran"]},
+            {"id": 157, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada forma de sh-l-m amb el seu significat", "promptAudioId": null, "promptScript": null, "correctAnswer": "shlama-pau/hola", "acceptedVariants": null, "options": ["shlama|pau/hola", "shlem|complet", "ashlem|va lliurar", "shulama|compliment"]},
+            {"id": 158, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu la paraula per 'compliment' (nom abstracte)", "promptAudioId": "a_shulama", "promptScript": "שולמא", "correctAnswer": "shulama", "acceptedVariants": ["shulama"], "options": null},
+            {"id": 159, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quin verb significa 'va lliurar, va completar'?", "promptAudioId": null, "promptScript": null, "correctAnswer": "ashlem", "acceptedVariants": ["ashlem"], "options": ["ashlem", "shlem", "shulama", "shlama"]},
+            {"id": 160, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el verb 'va lliurar' en arameu", "promptAudioId": "a_ashlem", "promptScript": "אשלם", "correctAnswer": "ashlem", "acceptedVariants": ["ashlem"], "options": null},
+            {"id": 161, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'shlem'", "promptAudioId": "a_shlem", "promptScript": "שלם", "correctAnswer": "shlem", "acceptedVariants": ["shlem"], "options": null}
+          ]
+        },
+        {
+          "id": 25,
+          "titleCa": "Arrel q-r-' (llegir)",
+          "order": 3,
+          "exercises": [
+            {"id": 162, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "Quins dos significats té l'arrel q-r-'?", "promptAudioId": null, "promptScript": null, "correctAnswer": "llegir i cridar", "acceptedVariants": ["llegir i cridar", "llegir, cridar"], "options": ["llegir i cridar", "escriure i copiar", "dir i parlar", "caminar i córrer"]},
+            {"id": 163, "phase": "intro", "type": "multiple_choice", "order": 2, "promptText": "Què vol dir 'miqra'?", "promptAudioId": "a_miqra", "promptScript": "מקרא", "correctAnswer": "escriptura, text sagrat", "acceptedVariants": ["escriptura", "text sagrat", "escriptura, text sagrat"], "options": ["escriptura, text sagrat", "lectura en veu alta", "escriba", "document"]},
+            {"id": 164, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada forma de q-r-' amb el seu significat", "promptAudioId": null, "promptScript": null, "correctAnswer": "qra-ell va llegir", "acceptedVariants": null, "options": ["qra|ell va llegir/cridar", "qeryana|lectura", "miqra|text sagrat"]},
+            {"id": 165, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu la paraula per 'lectura'", "promptAudioId": "a_qeryana", "promptScript": "קריינא", "correctAnswer": "qeryana", "acceptedVariants": ["qeryana", "keryana"], "options": null},
+            {"id": 166, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quina paraula prové de l'arrel q-r-' i significa 'text sagrat'?", "promptAudioId": null, "promptScript": null, "correctAnswer": "miqra", "acceptedVariants": ["miqra"], "options": ["miqra", "qra", "qeryana", "ktav"]},
+            {"id": 167, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el verb 'va llegir' en arameu", "promptAudioId": "a_qra", "promptScript": "קרא", "correctAnswer": "qra", "acceptedVariants": ["qra"], "options": null},
+            {"id": 168, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'miqra'", "promptAudioId": "a_miqra", "promptScript": "מקרא", "correctAnswer": "miqra", "acceptedVariants": ["miqra"], "options": null}
+          ]
+        },
+        {
+          "id": 26,
+          "titleCa": "Arrel a-m-r (dir)",
+          "order": 4,
+          "exercises": [
+            {"id": 169, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "Què vol dir 'amar'?", "promptAudioId": "a_amar", "promptScript": "אמר", "correctAnswer": "ell va dir", "acceptedVariants": ["va dir", "ell va dir"], "options": ["ell va dir", "ell va escriure", "ell va llegir", "ell va donar"]},
+            {"id": 170, "phase": "intro", "type": "multiple_choice", "order": 2, "promptText": "Què vol dir 'memra'?", "promptAudioId": "a_memra", "promptScript": "ממרא", "correctAnswer": "paraula, dita", "acceptedVariants": ["paraula", "dita", "paraula, dita"], "options": ["paraula, dita", "discurs llarg", "nom propi", "lletra"]},
+            {"id": 171, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada forma de a-m-r amb el seu significat", "promptAudioId": null, "promptScript": null, "correctAnswer": "amar-ell va dir", "acceptedVariants": null, "options": ["amar|ell va dir", "memra|paraula/dita", "amira|discurs"]},
+            {"id": 172, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu la paraula per 'discurs'", "promptAudioId": "a_amira", "promptScript": "אמירא", "correctAnswer": "amira", "acceptedVariants": ["amira"], "options": null},
+            {"id": 173, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quin terme targúmic important deriva de a-m-r?", "promptAudioId": null, "promptScript": null, "correctAnswer": "memra", "acceptedVariants": ["memra"], "options": ["memra", "amira", "amar", "miqra"]},
+            {"id": 174, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el verb 'va dir' en arameu", "promptAudioId": "a_amar", "promptScript": "אמר", "correctAnswer": "amar", "acceptedVariants": ["amar"], "options": null},
+            {"id": 175, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'memra'", "promptAudioId": "a_memra", "promptScript": "ממרא", "correctAnswer": "memra", "acceptedVariants": ["memra"], "options": null}
+          ]
+        },
+        {
+          "id": 27,
+          "titleCa": "Cos i persona",
+          "order": 5,
+          "exercises": [
+            {"id": 176, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "Què vol dir 'risha'?", "promptAudioId": "a_risha", "promptScript": "רישא", "correctAnswer": "cap", "acceptedVariants": ["cap"], "options": ["cap", "mà", "cor", "ull"]},
+            {"id": 177, "phase": "intro", "type": "multiple_choice", "order": 2, "promptText": "Què vol dir 'leba'?", "promptAudioId": "a_leba", "promptScript": "לבא", "correctAnswer": "cor", "acceptedVariants": ["cor"], "options": ["cor", "cap", "boca", "ull"]},
+            {"id": 178, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada part del cos amb el seu significat", "promptAudioId": null, "promptScript": null, "correctAnswer": "risha-cap", "acceptedVariants": null, "options": ["risha|cap", "yda|mà", "leba|cor", "ayna|ull", "puma|boca"]},
+            {"id": 179, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu la paraula per 'boca'", "promptAudioId": "a_puma", "promptScript": "פומא", "correctAnswer": "puma", "acceptedVariants": ["puma"], "options": null},
+            {"id": 180, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quina paraula significa 'mà'?", "promptAudioId": null, "promptScript": null, "correctAnswer": "yda", "acceptedVariants": ["yda"], "options": ["yda", "risha", "puma", "ayna"]},
+            {"id": 181, "phase": "mixed", "type": "script_write", "order": 2, "promptText": "Escriu 'leba' en escriptura hebrea quadrada", "promptAudioId": "a_leba", "promptScript": "leba", "correctAnswer": "לבא", "acceptedVariants": null, "options": null},
+            {"id": 182, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'risha'", "promptAudioId": "a_risha", "promptScript": "רישא", "correctAnswer": "risha", "acceptedVariants": ["risha"], "options": null}
+          ]
+        },
+        {
+          "id": 28,
+          "titleCa": "Casa i objectes",
+          "order": 6,
+          "exercises": [
+            {"id": 183, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "Què vol dir 'bayta'?", "promptAudioId": "a_bayta", "promptScript": "ביתא", "correctAnswer": "casa", "acceptedVariants": ["casa"], "options": ["casa", "porta", "taula", "pa"]},
+            {"id": 184, "phase": "intro", "type": "multiple_choice", "order": 2, "promptText": "Què vol dir 'lekhma'?", "promptAudioId": "a_lekhma", "promptScript": "לחמא", "correctAnswer": "pa", "acceptedVariants": ["pa"], "options": ["pa", "vi", "casa", "taula"]},
+            {"id": 185, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada objecte de la casa amb el seu significat", "promptAudioId": null, "promptScript": null, "correctAnswer": "bayta-casa", "acceptedVariants": null, "options": ["bayta|casa", "lekhma|pa", "khamra|vi", "tara|porta", "patora|taula"]},
+            {"id": 186, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu la paraula per 'vi'", "promptAudioId": "a_khamra", "promptScript": "חמרא", "correctAnswer": "khamra", "acceptedVariants": ["khamra", "hamra"], "options": null},
+            {"id": 187, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quina paraula significa 'porta'?", "promptAudioId": null, "promptScript": null, "correctAnswer": "tara", "acceptedVariants": ["tara"], "options": ["tara", "patora", "bayta", "lekhma"]},
+            {"id": 188, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu la paraula per 'taula'", "promptAudioId": "a_patora", "promptScript": "פתורא", "correctAnswer": "patora", "acceptedVariants": ["patora"], "options": null},
+            {"id": 189, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'bayta'", "promptAudioId": "a_bayta", "promptScript": "ביתא", "correctAnswer": "bayta", "acceptedVariants": ["bayta"], "options": null}
+          ]
+        },
+        {
+          "id": 29,
+          "titleCa": "Repàs: Famílies d'arrels",
+          "order": 7,
+          "exercises": [
+            {"id": 190, "phase": "mixed", "type": "matching", "order": 1, "promptText": "Relaciona cada arrel amb el seu significat bàsic", "promptAudioId": null, "promptScript": null, "correctAnswer": "k-t-b-escriure", "acceptedVariants": null, "options": ["k-t-b|escriure", "sh-l-m|pau/completesa", "q-r-'|llegir/cridar", "a-m-r|dir"]},
+            {"id": 191, "phase": "mixed", "type": "multiple_choice", "order": 2, "promptText": "Quina paraula prové de l'arrel sh-l-m?", "promptAudioId": null, "promptScript": null, "correctAnswer": "shlama", "acceptedVariants": ["shlama"], "options": ["shlama", "katav", "qra", "amar"]},
+            {"id": 192, "phase": "mixed", "type": "multiple_choice", "order": 3, "promptText": "Quina d'aquestes pertany a l'arrel k-t-b?", "promptAudioId": null, "promptScript": null, "correctAnswer": "kitba", "acceptedVariants": ["kitba"], "options": ["kitba", "amira", "qeryana", "shulama"]},
+            {"id": 193, "phase": "mixed", "type": "type_transliteration", "order": 4, "promptText": "Escriu la paraula per 'cor'", "promptAudioId": null, "promptScript": null, "correctAnswer": "leba", "acceptedVariants": ["leba"], "options": null},
+            {"id": 194, "phase": "mixed", "type": "type_transliteration", "order": 5, "promptText": "Escriu la paraula per 'pa'", "promptAudioId": null, "promptScript": null, "correctAnswer": "lekhma", "acceptedVariants": ["lekhma"], "options": null},
+            {"id": 195, "phase": "mixed", "type": "listen_repeat", "order": 6, "promptText": "Escolta i repeteix: 'memra'", "promptAudioId": "a_memra", "promptScript": "ממרא", "correctAnswer": "memra", "acceptedVariants": ["memra"], "options": null}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "level": "sentences",
+      "titleCa": "Frases simples i la veu de Daniel",
+      "order": 6,
+      "lessons": [
+        {
+          "id": 30,
+          "titleCa": "Verbs bàsics",
+          "order": 1,
+          "exercises": [
+            {"id": 196, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "Què vol dir 'azal'?", "promptAudioId": "a_azal", "promptScript": "אזל", "correctAnswer": "ell va anar", "acceptedVariants": ["va anar", "ell va anar"], "options": ["ell va anar", "ell va venir", "ell va donar", "ell va menjar"]},
+            {"id": 197, "phase": "intro", "type": "multiple_choice", "order": 2, "promptText": "Què vol dir 'yehav'?", "promptAudioId": "a_yehav", "promptScript": "יהב", "correctAnswer": "ell va donar", "acceptedVariants": ["va donar", "ell va donar"], "options": ["ell va donar", "ell va anar", "ell va dir", "ell va escriure"]},
+            {"id": 198, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada verb amb el seu significat", "promptAudioId": null, "promptScript": null, "correctAnswer": "azal-ell va anar", "acceptedVariants": null, "options": ["azal|ell va anar", "yehav|ell va donar", "akhel|ell va menjar", "katav|ell va escriure", "amar|ell va dir"]},
+            {"id": 199, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu el verb 'va menjar'", "promptAudioId": "a_akhel", "promptScript": "אכל", "correctAnswer": "akhel", "acceptedVariants": ["akhel", "akhal"], "options": null},
+            {"id": 200, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quin verb significa 'va llegir'?", "promptAudioId": null, "promptScript": null, "correctAnswer": "qra", "acceptedVariants": ["qra"], "options": ["qra", "amar", "azal", "yehav"]},
+            {"id": 201, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el verb 'va anar'", "promptAudioId": null, "promptScript": null, "correctAnswer": "azal", "acceptedVariants": ["azal"], "options": null},
+            {"id": 202, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'azal'", "promptAudioId": "a_azal", "promptScript": "אזל", "correctAnswer": "azal", "acceptedVariants": ["azal"], "options": null}
+          ]
+        },
+        {
+          "id": 31,
+          "titleCa": "\"El rei va escriure\"",
+          "order": 2,
+          "exercises": [
+            {"id": 203, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "Com es diu 'el rei va escriure' en arameu?", "promptAudioId": null, "promptScript": null, "correctAnswer": "malka katav", "acceptedVariants": ["malka katav"], "options": ["malka katav", "katav malka", "malka kitba", "katav kitba"]},
+            {"id": 204, "phase": "intro", "type": "multiple_choice", "order": 2, "promptText": "Com es diu 'l'home va dir la paraula' en arameu?", "promptAudioId": null, "promptScript": null, "correctAnswer": "gavra amar memra", "acceptedVariants": ["gavra amar memra"], "options": ["gavra amar memra", "amar gavra memra", "memra gavra amar", "gavra memra amar"]},
+            {"id": 205, "phase": "guided", "type": "sentence_build", "order": 1, "promptText": "Construeix la frase: 'el rei va escriure el document'", "promptAudioId": null, "promptScript": null, "correctAnswer": "malka katav kitba", "acceptedVariants": null, "options": null},
+            {"id": 206, "phase": "guided", "type": "sentence_build", "order": 2, "promptText": "Construeix la frase: 'l'home va dir la paraula'", "promptAudioId": null, "promptScript": null, "correctAnswer": "gavra amar memra", "acceptedVariants": null, "options": null},
+            {"id": 207, "phase": "mixed", "type": "sentence_build", "order": 1, "promptText": "Construeix la frase: 'la reina va llegir el text'", "promptAudioId": null, "promptScript": null, "correctAnswer": "malkta qra miqra", "acceptedVariants": null, "options": null},
+            {"id": 208, "phase": "mixed", "type": "multiple_choice", "order": 2, "promptText": "Quin és l'ordre bàsic de paraules en arameu?", "promptAudioId": null, "promptScript": null, "correctAnswer": "subjecte + verb + objecte", "acceptedVariants": ["subjecte + verb + objecte", "S+V+O"], "options": ["subjecte + verb + objecte", "verb + subjecte + objecte", "objecte + verb + subjecte", "subjecte + objecte + verb"]},
+            {"id": 209, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'malka katav kitba'", "promptAudioId": "a_malka", "promptScript": "מלכא כתב כתבא", "correctAnswer": "malka katav kitba", "acceptedVariants": ["malka katav kitba"], "options": null}
+          ]
+        },
+        {
+          "id": 32,
+          "titleCa": "Preguntes i respostes",
+          "order": 3,
+          "exercises": [
+            {"id": 210, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "Què vol dir 'man'?", "promptAudioId": "a_man", "promptScript": "מן", "correctAnswer": "qui", "acceptedVariants": ["qui"], "options": ["qui", "què", "on", "per què"]},
+            {"id": 211, "phase": "intro", "type": "multiple_choice", "order": 2, "promptText": "Quan vols preguntar 'per què?', quin mot uses?", "promptAudioId": "a_lema", "promptScript": "למה", "correctAnswer": "lema", "acceptedVariants": ["lema"], "options": ["lema", "man", "ma", "eykha"]},
+            {"id": 212, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada paraula interrogativa amb el seu significat", "promptAudioId": null, "promptScript": null, "correctAnswer": "man-qui", "acceptedVariants": null, "options": ["man|qui", "ma|què", "eykha|on", "lema|per què"]},
+            {"id": 213, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu la paraula per 'on'", "promptAudioId": "a_eykha", "promptScript": "איכה", "correctAnswer": "eykha", "acceptedVariants": ["eykha", "aykha"], "options": null},
+            {"id": 214, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Com preguntes 'qui és el rei?' — quin mot interrogatiu necessites?", "promptAudioId": null, "promptScript": null, "correctAnswer": "man", "acceptedVariants": ["man"], "options": ["man", "ma", "eykha", "lema"]},
+            {"id": 215, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu la paraula per 'què'", "promptAudioId": null, "promptScript": null, "correctAnswer": "ma", "acceptedVariants": ["ma"], "options": null},
+            {"id": 216, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'man'", "promptAudioId": "a_man", "promptScript": "מן", "correctAnswer": "man", "acceptedVariants": ["man"], "options": null}
+          ]
+        },
+        {
+          "id": 33,
+          "titleCa": "\"De\" i la pertinença",
+          "order": 4,
+          "exercises": [
+            {"id": 217, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "Què vol dir 'di'?", "promptAudioId": "a_di", "promptScript": "די", "correctAnswer": "de, que (genitiu/relatiu)", "acceptedVariants": ["de", "que", "de, que"], "options": ["de, que (genitiu/relatiu)", "i, també", "però", "perquè"]},
+            {"id": 218, "phase": "intro", "type": "multiple_choice", "order": 2, "promptText": "Com es diu 'el rei de Babel' en arameu?", "promptAudioId": null, "promptScript": null, "correctAnswer": "malka di bavel", "acceptedVariants": ["malka di bavel"], "options": ["malka di bavel", "malka min bavel", "di malka bavel", "bavel malka di"]},
+            {"id": 219, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona les expressions amb els seus significats", "promptAudioId": null, "promptScript": null, "correctAnswer": "malka di bavel-el rei de Babel", "acceptedVariants": null, "options": ["malka di bavel|el rei de Babel", "bayta di malka|la casa del rei", "bar enash|fill de l'home"]},
+            {"id": 220, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu 'de, des de' (preposició d'origen)", "promptAudioId": "a_min", "promptScript": "מן", "correctAnswer": "min", "acceptedVariants": ["min"], "options": null},
+            {"id": 221, "phase": "mixed", "type": "sentence_build", "order": 1, "promptText": "Construeix: 'la casa del rei'", "promptAudioId": null, "promptScript": null, "correctAnswer": "bayta di malka", "acceptedVariants": null, "options": null},
+            {"id": 222, "phase": "mixed", "type": "multiple_choice", "order": 2, "promptText": "Quina partícula uneix dos substantius en relació de possessió?", "promptAudioId": null, "promptScript": null, "correctAnswer": "di", "acceptedVariants": ["di"], "options": ["di", "min", "man", "la"]},
+            {"id": 223, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'di'", "promptAudioId": "a_di", "promptScript": "די", "correctAnswer": "di", "acceptedVariants": ["di"], "options": null}
+          ]
+        },
+        {
+          "id": 34,
+          "titleCa": "Les primeres paraules de Daniel",
+          "order": 5,
+          "exercises": [
+            {"id": 224, "phase": "intro", "type": "multiple_choice", "order": 1, "promptText": "A Daniel 2:4, els savis diuen al rei: 'malka l'almin kheyi'. Què vol dir 'l'almin'?", "promptAudioId": "a_lalmin", "promptScript": "לעלמין", "correctAnswer": "per sempre", "acceptedVariants": ["per sempre", "eternament"], "options": ["per sempre", "amb sort", "avui", "en pau"]},
+            {"id": 225, "phase": "intro", "type": "multiple_choice", "order": 2, "promptText": "Què significa 'kheyi'?", "promptAudioId": "a_kheyi", "promptScript": "חיי", "correctAnswer": "viu! (imperatiu)", "acceptedVariants": ["viu", "viu!"], "options": ["viu! (imperatiu)", "mort", "dormi", "regna"]},
+            {"id": 226, "phase": "guided", "type": "type_transliteration", "order": 1, "promptText": "Escriu la paraula per 'per sempre'", "promptAudioId": "a_lalmin", "promptScript": "לעלמין", "correctAnswer": "l'almin", "acceptedVariants": ["l'almin", "lalmin", "l'almin"], "options": null},
+            {"id": 227, "phase": "guided", "type": "sentence_build", "order": 2, "promptText": "Construeix la salutació reial: 'O rei, viu per sempre!'", "promptAudioId": null, "promptScript": null, "correctAnswer": "malka l'almin kheyi", "acceptedVariants": null, "options": null},
+            {"id": 228, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "En quina llengua escriu Daniel 2:4 i endavant?", "promptAudioId": null, "promptScript": null, "correctAnswer": "arameu", "acceptedVariants": ["arameu"], "options": ["arameu", "hebreu", "grec", "llatí"]},
+            {"id": 229, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu l'imperatiu 'viu!'", "promptAudioId": "a_kheyi", "promptScript": "חיי", "correctAnswer": "kheyi", "acceptedVariants": ["kheyi", "heyi"], "options": null},
+            {"id": 230, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'malka l'almin kheyi'", "promptAudioId": "a_lalmin", "promptScript": "מלכא לעלמין חיי", "correctAnswer": "malka l'almin kheyi", "acceptedVariants": ["malka l'almin kheyi"], "options": null}
+          ]
+        },
+        {
+          "id": 35,
+          "titleCa": "Repàs: Llegint Daniel",
+          "order": 6,
+          "exercises": [
+            {"id": 231, "phase": "mixed", "type": "matching", "order": 1, "promptText": "Relaciona les paraules interrogatives", "promptAudioId": null, "promptScript": null, "correctAnswer": "man-qui", "acceptedVariants": null, "options": ["man|qui", "ma|què", "eykha|on", "lema|per què"]},
+            {"id": 232, "phase": "mixed", "type": "matching", "order": 2, "promptText": "Relaciona verbs bàsics amb els seus significats", "promptAudioId": null, "promptScript": null, "correctAnswer": "azal-ell va anar", "acceptedVariants": null, "options": ["azal|ell va anar", "yehav|ell va donar", "akhel|ell va menjar", "amar|ell va dir"]},
+            {"id": 233, "phase": "mixed", "type": "sentence_build", "order": 3, "promptText": "Construeix: 'el rei va donar el pa'", "promptAudioId": null, "promptScript": null, "correctAnswer": "malka yehav lekhma", "acceptedVariants": null, "options": null},
+            {"id": 234, "phase": "mixed", "type": "sentence_build", "order": 4, "promptText": "Construeix la salutació de Daniel 2:4", "promptAudioId": null, "promptScript": null, "correctAnswer": "malka l'almin kheyi", "acceptedVariants": null, "options": null},
+            {"id": 235, "phase": "mixed", "type": "multiple_choice", "order": 5, "promptText": "Quin mot arameu uneix noms en possessió (com en 'el rei de Babel')?", "promptAudioId": null, "promptScript": null, "correctAnswer": "di", "acceptedVariants": ["di"], "options": ["di", "min", "man", "la"]},
+            {"id": 236, "phase": "mixed", "type": "type_transliteration", "order": 6, "promptText": "Escriu el mot que significa 'per sempre'", "promptAudioId": null, "promptScript": null, "correctAnswer": "l'almin", "acceptedVariants": ["l'almin", "lalmin"], "options": null},
+            {"id": 237, "phase": "mixed", "type": "listen_repeat", "order": 7, "promptText": "Escolta i repeteix: 'malka l'almin kheyi'", "promptAudioId": "a_lalmin", "promptScript": "מלכא לעלמין חיי", "correctAnswer": "malka l'almin kheyi", "acceptedVariants": ["malka l'almin kheyi"], "options": null}
+          ]
+        }
+      ]
     }
   ],
   "vocabulary": [
@@ -258,6 +560,63 @@
     {"id": 28, "transliteration": "leyla", "script": "ܠܝܠܐ", "meaningCa": "nit", "audioId": "a_leyla", "unitId": 3, "grammarNote": null},
     {"id": 29, "transliteration": "ar'a", "script": "ܐܪܥܐ", "meaningCa": "terra", "audioId": "a_ara", "unitId": 3, "grammarNote": null},
     {"id": 30, "transliteration": "shmaya", "script": "ܫܡܝܐ", "meaningCa": "cel", "audioId": "a_shmaya", "unitId": 3, "grammarNote": null},
-    {"id": 31, "transliteration": "bara", "script": "ܒܪܐ", "meaningCa": "fill", "audioId": "a_bara", "unitId": 3, "grammarNote": null}
+    {"id": 31, "transliteration": "bara", "script": "ܒܪܐ", "meaningCa": "fill", "audioId": "a_bara", "unitId": 3, "grammarNote": null},
+    {"id": 32, "transliteration": "khad", "script": "אחד", "meaningCa": "u (1)", "audioId": "a_khad", "unitId": 4, "grammarNote": null},
+    {"id": 33, "transliteration": "tren", "script": "תרין", "meaningCa": "dos (2)", "audioId": "a_tren", "unitId": 4, "grammarNote": null},
+    {"id": 34, "transliteration": "tlata", "script": "תלתא", "meaningCa": "tres (3)", "audioId": "a_tlata", "unitId": 4, "grammarNote": null},
+    {"id": 35, "transliteration": "arba", "script": "ארבעא", "meaningCa": "quatre (4)", "audioId": "a_arba", "unitId": 4, "grammarNote": null},
+    {"id": 36, "transliteration": "khamsha", "script": "חמשא", "meaningCa": "cinc (5)", "audioId": "a_khamsha", "unitId": 4, "grammarNote": null},
+    {"id": 37, "transliteration": "shetta", "script": "שתא", "meaningCa": "sis (6)", "audioId": "a_shetta", "unitId": 4, "grammarNote": null},
+    {"id": 38, "transliteration": "shva", "script": "שבעא", "meaningCa": "set (7)", "audioId": "a_shva", "unitId": 4, "grammarNote": null},
+    {"id": 39, "transliteration": "tmanya", "script": "תמניא", "meaningCa": "vuit (8)", "audioId": "a_tmanya", "unitId": 4, "grammarNote": null},
+    {"id": 40, "transliteration": "tsha", "script": "תשעא", "meaningCa": "nou (9)", "audioId": "a_tsha", "unitId": 4, "grammarNote": null},
+    {"id": 41, "transliteration": "asra", "script": "עשרא", "meaningCa": "deu (10)", "audioId": "a_asra", "unitId": 4, "grammarNote": null},
+    {"id": 42, "transliteration": "ken", "script": "כן", "meaningCa": "sí", "audioId": "a_ken", "unitId": 4, "grammarNote": null},
+    {"id": 43, "transliteration": "la", "script": "לא", "meaningCa": "no", "audioId": "a_la", "unitId": 4, "grammarNote": null},
+    {"id": 44, "transliteration": "basima", "script": "בסימא", "meaningCa": "bo, agradable", "audioId": "a_basima", "unitId": 4, "grammarNote": null},
+    {"id": 45, "transliteration": "bshem", "script": "בשם", "meaningCa": "en el nom de", "audioId": "a_bshem", "unitId": 4, "grammarNote": null},
+    {"id": 46, "transliteration": "malka", "script": "מלכא", "meaningCa": "rei", "audioId": "a_malka", "unitId": 4, "grammarNote": "Script hebreu quadrat. Cf. aramaeu siriaci ܡܠܟܐ."},
+    {"id": 47, "transliteration": "malkta", "script": "מלכתא", "meaningCa": "reina", "audioId": "a_malkta", "unitId": 4, "grammarNote": "Femení de malka. Sufix -ta."},
+    {"id": 48, "transliteration": "gavra", "script": "גברא", "meaningCa": "home", "audioId": "a_gavra", "unitId": 4, "grammarNote": null},
+    {"id": 49, "transliteration": "atta", "script": "אתתא", "meaningCa": "dona", "audioId": "a_atta", "unitId": 4, "grammarNote": null},
+    {"id": 50, "transliteration": "enash", "script": "אנש", "meaningCa": "persona, ésser humà", "audioId": "a_enash", "unitId": 4, "grammarNote": null},
+    {"id": 51, "transliteration": "malkut", "script": "מלכות", "meaningCa": "regne", "audioId": "a_malkut", "unitId": 4, "grammarNote": "De l'arrel m-l-k. Pattern qatl-ut."},
+    {"id": 52, "transliteration": "mayya", "script": "מיא", "meaningCa": "aigua", "audioId": "a_mayya", "unitId": 4, "grammarNote": null},
+    {"id": 53, "transliteration": "nura", "script": "נורא", "meaningCa": "foc", "audioId": "a_nura", "unitId": 4, "grammarNote": null},
+    {"id": 54, "transliteration": "ruakh", "script": "רוחא", "meaningCa": "vent, esperit", "audioId": "a_ruakh", "unitId": 4, "grammarNote": "Polisèmia: vent físic i esperit diví."},
+    {"id": 55, "transliteration": "ktav", "script": "כתב", "meaningCa": "escriptura", "audioId": "a_ktav", "unitId": 5, "grammarNote": "Arrel k-t-b. Nom d'acció."},
+    {"id": 56, "transliteration": "katav", "script": "כתב", "meaningCa": "ell va escriure", "audioId": "a_katav", "unitId": 5, "grammarNote": "Passat 3a persona masc. sing. arrel k-t-b."},
+    {"id": 57, "transliteration": "katba", "script": "כתבא", "meaningCa": "escriba", "audioId": "a_katba", "unitId": 5, "grammarNote": "Agent nominal de l'arrel k-t-b."},
+    {"id": 58, "transliteration": "kitba", "script": "כתבא", "meaningCa": "document, text", "audioId": "a_kitba", "unitId": 5, "grammarNote": "Nom de l'arrel k-t-b. Pattern qitl-a."},
+    {"id": 59, "transliteration": "shlem", "script": "שלם", "meaningCa": "complet, sencer", "audioId": "a_shlem", "unitId": 5, "grammarNote": "Adjectiu de l'arrel sh-l-m."},
+    {"id": 60, "transliteration": "ashlem", "script": "אשלם", "meaningCa": "ell va lliurar, va completar", "audioId": "a_ashlem", "unitId": 5, "grammarNote": "Af'el (causatiu) de sh-l-m."},
+    {"id": 61, "transliteration": "shulama", "script": "שולמא", "meaningCa": "compliment, acabament", "audioId": "a_shulama", "unitId": 5, "grammarNote": "Nom abstracte de sh-l-m."},
+    {"id": 62, "transliteration": "qra", "script": "קרא", "meaningCa": "ell va llegir, va cridar", "audioId": "a_qra", "unitId": 5, "grammarNote": "Arrel q-r-'. Polisèmia: llegir i cridar."},
+    {"id": 63, "transliteration": "qeryana", "script": "קריינא", "meaningCa": "lectura", "audioId": "a_qeryana", "unitId": 5, "grammarNote": "Nom d'acció de q-r-'."},
+    {"id": 64, "transliteration": "miqra", "script": "מקרא", "meaningCa": "escriptura, text sagrat", "audioId": "a_miqra", "unitId": 5, "grammarNote": "Nom de lloc/instrument de q-r-'."},
+    {"id": 65, "transliteration": "amar", "script": "אמר", "meaningCa": "ell va dir", "audioId": "a_amar", "unitId": 5, "grammarNote": "Arrel a-m-r. Verb de comunicació."},
+    {"id": 66, "transliteration": "memra", "script": "ממרא", "meaningCa": "paraula, dita", "audioId": "a_memra", "unitId": 5, "grammarNote": "Nom de l'arrel a-m-r. Terme targúmic important."},
+    {"id": 67, "transliteration": "amira", "script": "אמירא", "meaningCa": "discurs, parla", "audioId": "a_amira", "unitId": 5, "grammarNote": "Nom d'acció de a-m-r."},
+    {"id": 68, "transliteration": "risha", "script": "רישא", "meaningCa": "cap", "audioId": "a_risha", "unitId": 5, "grammarNote": null},
+    {"id": 69, "transliteration": "yda", "script": "ידא", "meaningCa": "mà", "audioId": "a_yda", "unitId": 5, "grammarNote": null},
+    {"id": 70, "transliteration": "leba", "script": "לבא", "meaningCa": "cor", "audioId": "a_leba", "unitId": 5, "grammarNote": null},
+    {"id": 71, "transliteration": "ayna", "script": "עינא", "meaningCa": "ull", "audioId": "a_ayna", "unitId": 5, "grammarNote": null},
+    {"id": 72, "transliteration": "puma", "script": "פומא", "meaningCa": "boca", "audioId": "a_puma", "unitId": 5, "grammarNote": null},
+    {"id": 73, "transliteration": "bayta", "script": "ביתא", "meaningCa": "casa", "audioId": "a_bayta", "unitId": 5, "grammarNote": null},
+    {"id": 74, "transliteration": "lekhma", "script": "לחמא", "meaningCa": "pa", "audioId": "a_lekhma", "unitId": 5, "grammarNote": null},
+    {"id": 75, "transliteration": "khamra", "script": "חמרא", "meaningCa": "vi", "audioId": "a_khamra", "unitId": 5, "grammarNote": null},
+    {"id": 76, "transliteration": "tara", "script": "תרעא", "meaningCa": "porta", "audioId": "a_tara", "unitId": 5, "grammarNote": null},
+    {"id": 77, "transliteration": "patora", "script": "פתורא", "meaningCa": "taula", "audioId": "a_patora", "unitId": 5, "grammarNote": null},
+    {"id": 78, "transliteration": "azal", "script": "אזל", "meaningCa": "ell va anar", "audioId": "a_azal", "unitId": 6, "grammarNote": "Verb de moviment. Arrel a-z-l."},
+    {"id": 79, "transliteration": "yehav", "script": "יהב", "meaningCa": "ell va donar", "audioId": "a_yehav", "unitId": 6, "grammarNote": "Verb de donació. Arrel y-h-b."},
+    {"id": 80, "transliteration": "akhel", "script": "אכל", "meaningCa": "ell va menjar", "audioId": "a_akhel", "unitId": 6, "grammarNote": "Arrel a-k-l."},
+    {"id": 81, "transliteration": "man", "script": "מן", "meaningCa": "qui", "audioId": "a_man", "unitId": 6, "grammarNote": "Pronom interrogatiu per a persones."},
+    {"id": 82, "transliteration": "ma", "script": "מא", "meaningCa": "què", "audioId": "a_ma", "unitId": 6, "grammarNote": "Pronom interrogatiu per a coses."},
+    {"id": 83, "transliteration": "eykha", "script": "איכה", "meaningCa": "on", "audioId": "a_eykha", "unitId": 6, "grammarNote": "Adverbi interrogatiu de lloc."},
+    {"id": 84, "transliteration": "lema", "script": "למה", "meaningCa": "per què", "audioId": "a_lema", "unitId": 6, "grammarNote": "Adverbi interrogatiu de causa."},
+    {"id": 85, "transliteration": "di", "script": "די", "meaningCa": "de, que (partícula relativa/genitiu)", "audioId": "a_di", "unitId": 6, "grammarNote": "Una de les paraules més freqüents de l'arameu. Marca possessió i subordinació."},
+    {"id": 86, "transliteration": "min", "script": "מן", "meaningCa": "de, des de", "audioId": "a_min", "unitId": 6, "grammarNote": "Preposició d'origen i separació."},
+    {"id": 87, "transliteration": "l'almin", "script": "לעלמין", "meaningCa": "per sempre, eternament", "audioId": "a_lalmin", "unitId": 6, "grammarNote": "Expressió litúrgica. De 'alam (món, eternitat)."},
+    {"id": 88, "transliteration": "kheyi", "script": "חיי", "meaningCa": "viu! (imperatiu)", "audioId": "a_kheyi", "unitId": 6, "grammarNote": "Imperatiu plural de khaya (viure). Daniel 2:4."}
   ]
 }

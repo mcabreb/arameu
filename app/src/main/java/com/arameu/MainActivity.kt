@@ -97,7 +97,7 @@ class MainActivity : ComponentActivity() {
                                         .replace("_", "-")
                                         .replace(" ", "-")
                                     // Try unit directories in order
-                                    for (unit in 1..3) {
+                                    for (unit in 1..6) {
                                         val assetPath = "audio/unit$unit/$path.mp3"
                                         try {
                                             assets.open(assetPath).close()
