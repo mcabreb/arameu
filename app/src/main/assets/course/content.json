@@ -16,7 +16,8 @@
             {"id": 3, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada so amb la lletra", "promptAudioId": null, "promptScript": null, "correctAnswer": "aleph-ܐ", "acceptedVariants": null, "options": ["aleph|ܐ", "beth|ܒ", "gimel|ܓ", "daleth|ܕ"]},
             {"id": 4, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_aleph", "promptScript": "ܐ", "correctAnswer": "aleph", "acceptedVariants": ["aleph", "Aleph", "alef"], "options": null},
             {"id": 5, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quina és la primera lletra de l'alfabet arameu?", "promptAudioId": null, "promptScript": null, "correctAnswer": "aleph", "acceptedVariants": ["aleph"], "options": ["aleph", "beth", "gimel", "daleth"]},
-            {"id": 6, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_beth", "promptScript": "ܒ", "correctAnswer": "beth", "acceptedVariants": ["beth", "bet", "Beth"], "options": null}
+            {"id": 6, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_beth", "promptScript": "ܒ", "correctAnswer": "beth", "acceptedVariants": ["beth", "bet", "Beth"], "options": null},
+            {"id": 85, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'beth'", "promptAudioId": "a_beth", "promptScript": "ܒ", "correctAnswer": "beth", "acceptedVariants": ["beth", "bet", "Beth"], "options": null}
           ]
         },
         {
@@ -29,7 +30,8 @@
             {"id": 9, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada so amb la lletra", "promptAudioId": null, "promptScript": null, "correctAnswer": "gimel-ܓ", "acceptedVariants": null, "options": ["gimel|ܓ", "daleth|ܕ", "aleph|ܐ", "beth|ܒ"]},
             {"id": 10, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_gimel", "promptScript": "ܓ", "correctAnswer": "gimel", "acceptedVariants": ["gimel", "gamal", "Gimel"], "options": null},
             {"id": 11, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quina lletra ve després de beth?", "promptAudioId": null, "promptScript": null, "correctAnswer": "gimel", "acceptedVariants": ["gimel"], "options": ["gimel", "daleth", "he", "aleph"]},
-            {"id": 12, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_daleth", "promptScript": "ܕ", "correctAnswer": "daleth", "acceptedVariants": ["daleth", "dalat", "Daleth"], "options": null}
+            {"id": 12, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_daleth", "promptScript": "ܕ", "correctAnswer": "daleth", "acceptedVariants": ["daleth", "dalat", "Daleth"], "options": null},
+            {"id": 86, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'daleth'", "promptAudioId": "a_daleth", "promptScript": "ܕ", "correctAnswer": "daleth", "acceptedVariants": ["daleth", "dalat", "Daleth"], "options": null}
           ]
         },
         {
@@ -42,7 +44,8 @@
             {"id": 15, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada so amb la lletra", "promptAudioId": null, "promptScript": null, "correctAnswer": "he-ܗ", "acceptedVariants": null, "options": ["he|ܗ", "waw|ܘ", "gimel|ܓ", "daleth|ܕ"]},
             {"id": 16, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_he", "promptScript": "ܗ", "correctAnswer": "he", "acceptedVariants": ["he", "heh", "He"], "options": null},
             {"id": 17, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quina lletra fa el so 'w'?", "promptAudioId": null, "promptScript": null, "correctAnswer": "waw", "acceptedVariants": ["waw"], "options": ["waw", "he", "beth", "gimel"]},
-            {"id": 18, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_waw", "promptScript": "ܘ", "correctAnswer": "waw", "acceptedVariants": ["waw", "vav", "Waw"], "options": null}
+            {"id": 18, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_waw", "promptScript": "ܘ", "correctAnswer": "waw", "acceptedVariants": ["waw", "vav", "Waw"], "options": null},
+            {"id": 87, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'waw'", "promptAudioId": "a_waw", "promptScript": "ܘ", "correctAnswer": "waw", "acceptedVariants": ["waw", "vav", "Waw"], "options": null}
           ]
         },
         {
@@ -55,7 +58,8 @@
             {"id": 21, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada so amb la lletra", "promptAudioId": null, "promptScript": null, "correctAnswer": "zayn-ܙ", "acceptedVariants": null, "options": ["zayn|ܙ", "heth|ܚ", "he|ܗ", "waw|ܘ", "daleth|ܕ"]},
             {"id": 22, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_heth", "promptScript": "ܚ", "correctAnswer": "heth", "acceptedVariants": ["heth", "het", "chet"], "options": null},
             {"id": 23, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quina lletra fa el so 'z'?", "promptAudioId": null, "promptScript": null, "correctAnswer": "zayn", "acceptedVariants": ["zayn"], "options": ["zayn", "heth", "gimel", "he"]},
-            {"id": 24, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_zayn", "promptScript": "ܙ", "correctAnswer": "zayn", "acceptedVariants": ["zayn", "zain", "Zayn"], "options": null}
+            {"id": 24, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_zayn", "promptScript": "ܙ", "correctAnswer": "zayn", "acceptedVariants": ["zayn", "zain", "Zayn"], "options": null},
+            {"id": 88, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'heth'", "promptAudioId": "a_heth", "promptScript": "ܚ", "correctAnswer": "heth", "acceptedVariants": ["heth", "het", "chet"], "options": null}
           ]
         },
         {
@@ -87,7 +91,8 @@
             {"id": 31, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada so amb la lletra", "promptAudioId": null, "promptScript": null, "correctAnswer": "teth-ܛ", "acceptedVariants": null, "options": ["teth|ܛ", "yodh|ܝ", "heth|ܚ", "zayn|ܙ"]},
             {"id": 32, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_yodh", "promptScript": "ܝ", "correctAnswer": "yodh", "acceptedVariants": ["yodh", "yod", "yud"], "options": null},
             {"id": 33, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quina lletra fa el so 't' emfàtic?", "promptAudioId": null, "promptScript": null, "correctAnswer": "teth", "acceptedVariants": ["teth"], "options": ["teth", "daleth", "yodh", "heth"]},
-            {"id": 34, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_teth", "promptScript": "ܛ", "correctAnswer": "teth", "acceptedVariants": ["teth", "tet", "Teth"], "options": null}
+            {"id": 34, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_teth", "promptScript": "ܛ", "correctAnswer": "teth", "acceptedVariants": ["teth", "tet", "Teth"], "options": null},
+            {"id": 89, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'yodh'", "promptAudioId": "a_yodh", "promptScript": "ܝ", "correctAnswer": "yodh", "acceptedVariants": ["yodh", "yod", "yud"], "options": null}
           ]
         },
         {
@@ -100,7 +105,8 @@
             {"id": 37, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada so amb la lletra", "promptAudioId": null, "promptScript": null, "correctAnswer": "kaph-ܟ", "acceptedVariants": null, "options": ["kaph|ܟ", "lamadh|ܠ", "teth|ܛ", "yodh|ܝ"]},
             {"id": 38, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_lamadh", "promptScript": "ܠ", "correctAnswer": "lamadh", "acceptedVariants": ["lamadh", "lamed", "Lamadh"], "options": null},
             {"id": 39, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quina lletra es pronuncia com una 'k'?", "promptAudioId": null, "promptScript": null, "correctAnswer": "kaph", "acceptedVariants": ["kaph"], "options": ["kaph", "gimel", "teth", "lamadh"]},
-            {"id": 40, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_kaph", "promptScript": "ܟ", "correctAnswer": "kaph", "acceptedVariants": ["kaph", "kap", "kaf"], "options": null}
+            {"id": 40, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_kaph", "promptScript": "ܟ", "correctAnswer": "kaph", "acceptedVariants": ["kaph", "kap", "kaf"], "options": null},
+            {"id": 90, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'lamadh'", "promptAudioId": "a_lamadh", "promptScript": "ܠ", "correctAnswer": "lamadh", "acceptedVariants": ["lamadh", "lamed", "Lamadh"], "options": null}
           ]
         },
         {
@@ -113,7 +119,8 @@
             {"id": 43, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada so amb la lletra", "promptAudioId": null, "promptScript": null, "correctAnswer": "mim-ܡ", "acceptedVariants": null, "options": ["mim|ܡ", "nun|ܢ", "lamadh|ܠ", "kaph|ܟ"]},
             {"id": 44, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_nun", "promptScript": "ܢ", "correctAnswer": "nun", "acceptedVariants": ["nun", "Nun"], "options": null},
             {"id": 45, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quina lletra fa el so 'm'?", "promptAudioId": null, "promptScript": null, "correctAnswer": "mim", "acceptedVariants": ["mim"], "options": ["mim", "nun", "lamadh", "beth"]},
-            {"id": 46, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_mim", "promptScript": "ܡ", "correctAnswer": "mim", "acceptedVariants": ["mim", "mem", "Mim"], "options": null}
+            {"id": 46, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_mim", "promptScript": "ܡ", "correctAnswer": "mim", "acceptedVariants": ["mim", "mem", "Mim"], "options": null},
+            {"id": 91, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'nun'", "promptAudioId": "a_nun", "promptScript": "ܢ", "correctAnswer": "nun", "acceptedVariants": ["nun", "Nun"], "options": null}
           ]
         },
         {
@@ -126,7 +133,8 @@
             {"id": 49, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada so amb la lletra", "promptAudioId": null, "promptScript": null, "correctAnswer": "semkath-ܣ", "acceptedVariants": null, "options": ["semkath|ܣ", "'e|ܥ", "mim|ܡ", "nun|ܢ"]},
             {"id": 50, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_semkath", "promptScript": "ܣ", "correctAnswer": "semkath", "acceptedVariants": ["semkath", "samekh"], "options": null},
             {"id": 51, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quina lletra és una consonant gutural?", "promptAudioId": null, "promptScript": null, "correctAnswer": "'e", "acceptedVariants": ["'e"], "options": ["'e", "semkath", "he", "heth"]},
-            {"id": 52, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_e", "promptScript": "ܥ", "correctAnswer": "'e", "acceptedVariants": ["'e", "ayin", "e"], "options": null}
+            {"id": 52, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_e", "promptScript": "ܥ", "correctAnswer": "'e", "acceptedVariants": ["'e", "ayin", "e"], "options": null},
+            {"id": 92, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: ''e'", "promptAudioId": "a_e", "promptScript": "ܥ", "correctAnswer": "'e", "acceptedVariants": ["'e", "ayin", "e"], "options": null}
           ]
         },
         {
@@ -158,7 +166,8 @@
             {"id": 59, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada so amb la lletra", "promptAudioId": null, "promptScript": null, "correctAnswer": "pe-ܦ", "acceptedVariants": null, "options": ["pe|ܦ", "sadhe|ܨ", "semkath|ܣ", "'e|ܥ"]},
             {"id": 60, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_sadhe", "promptScript": "ܨ", "correctAnswer": "sadhe", "acceptedVariants": ["sadhe", "tsade"], "options": null},
             {"id": 61, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quina lletra fa el so 'p'?", "promptAudioId": null, "promptScript": null, "correctAnswer": "pe", "acceptedVariants": ["pe"], "options": ["pe", "beth", "kaph", "sadhe"]},
-            {"id": 62, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_pe", "promptScript": "ܦ", "correctAnswer": "pe", "acceptedVariants": ["pe", "peh", "Pe"], "options": null}
+            {"id": 62, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_pe", "promptScript": "ܦ", "correctAnswer": "pe", "acceptedVariants": ["pe", "peh", "Pe"], "options": null},
+            {"id": 93, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'pe'", "promptAudioId": "a_pe", "promptScript": "ܦ", "correctAnswer": "pe", "acceptedVariants": ["pe", "peh", "Pe"], "options": null}
           ]
         },
         {
@@ -171,7 +180,8 @@
             {"id": 65, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada so amb la lletra", "promptAudioId": null, "promptScript": null, "correctAnswer": "qoph-ܩ", "acceptedVariants": null, "options": ["qoph|ܩ", "resh|ܪ", "pe|ܦ", "sadhe|ܨ"]},
             {"id": 66, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_resh", "promptScript": "ܪ", "correctAnswer": "resh", "acceptedVariants": ["resh", "rish"], "options": null},
             {"id": 67, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quina lletra es pronuncia com una 'q' gutural?", "promptAudioId": null, "promptScript": null, "correctAnswer": "qoph", "acceptedVariants": ["qoph"], "options": ["qoph", "kaph", "gimel", "resh"]},
-            {"id": 68, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_qoph", "promptScript": "ܩ", "correctAnswer": "qoph", "acceptedVariants": ["qoph", "qop", "qof"], "options": null}
+            {"id": 68, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_qoph", "promptScript": "ܩ", "correctAnswer": "qoph", "acceptedVariants": ["qoph", "qop", "qof"], "options": null},
+            {"id": 94, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'resh'", "promptAudioId": "a_resh", "promptScript": "ܪ", "correctAnswer": "resh", "acceptedVariants": ["resh", "rish"], "options": null}
           ]
         },
         {
@@ -184,7 +194,8 @@
             {"id": 71, "phase": "guided", "type": "matching", "order": 1, "promptText": "Relaciona cada so amb la lletra", "promptAudioId": null, "promptScript": null, "correctAnswer": "shin-ܫ", "acceptedVariants": null, "options": ["shin|ܫ", "taw|ܬ", "resh|ܪ", "qoph|ܩ"]},
             {"id": 72, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_taw", "promptScript": "ܬ", "correctAnswer": "taw", "acceptedVariants": ["taw", "tav"], "options": null},
             {"id": 73, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Quina és l'última lletra de l'alfabet arameu?", "promptAudioId": null, "promptScript": null, "correctAnswer": "taw", "acceptedVariants": ["taw"], "options": ["taw", "shin", "resh", "qoph"]},
-            {"id": 74, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_shin", "promptScript": "ܫ", "correctAnswer": "shin", "acceptedVariants": ["shin", "Shin"], "options": null}
+            {"id": 74, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_shin", "promptScript": "ܫ", "correctAnswer": "shin", "acceptedVariants": ["shin", "Shin"], "options": null},
+            {"id": 95, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'taw'", "promptAudioId": "a_taw", "promptScript": "ܬ", "correctAnswer": "taw", "acceptedVariants": ["taw", "tav"], "options": null}
           ]
         },
         {
@@ -195,7 +206,8 @@
             {"id": 75, "phase": "mixed", "type": "matching", "order": 1, "promptText": "Relaciona les primeres 11 lletres", "promptAudioId": null, "promptScript": null, "correctAnswer": "aleph-ܐ", "acceptedVariants": null, "options": ["aleph|ܐ", "beth|ܒ", "gimel|ܓ", "daleth|ܕ", "he|ܗ"]},
             {"id": 76, "phase": "mixed", "type": "matching", "order": 2, "promptText": "Relaciona les últimes 11 lletres", "promptAudioId": null, "promptScript": null, "correctAnswer": "pe-ܦ", "acceptedVariants": null, "options": ["pe|ܦ", "sadhe|ܨ", "qoph|ܩ", "resh|ܪ", "shin|ܫ"]},
             {"id": 77, "phase": "mixed", "type": "type_transliteration", "order": 3, "promptText": "Escriu el nom d'aquesta lletra", "promptAudioId": "a_shin", "promptScript": "ܫ", "correctAnswer": "shin", "acceptedVariants": ["shin"], "options": null},
-            {"id": 78, "phase": "mixed", "type": "multiple_choice", "order": 4, "promptText": "Quantes lletres té l'alfabet arameu?", "promptAudioId": null, "promptScript": null, "correctAnswer": "22", "acceptedVariants": ["22"], "options": ["22", "26", "28", "20"]}
+            {"id": 78, "phase": "mixed", "type": "multiple_choice", "order": 4, "promptText": "Quantes lletres té l'alfabet arameu?", "promptAudioId": null, "promptScript": null, "correctAnswer": "22", "acceptedVariants": ["22"], "options": ["22", "26", "28", "20"]},
+            {"id": 96, "phase": "mixed", "type": "listen_repeat", "order": 5, "promptText": "Escolta i repeteix: 'taw'", "promptAudioId": "a_taw", "promptScript": "ܬ", "correctAnswer": "taw", "acceptedVariants": ["taw", "tav"], "options": null}
           ]
         },
         {
@@ -208,7 +220,8 @@
             {"id": 81, "phase": "guided", "type": "type_transliteration", "order": 1, "promptText": "Escriu la paraula que sents", "promptAudioId": "a_shlama", "promptScript": "ܫܠܡܐ", "correctAnswer": "shlama", "acceptedVariants": ["shlama", "schlama"], "options": null},
             {"id": 82, "phase": "guided", "type": "type_transliteration", "order": 2, "promptText": "Escriu la paraula que sents", "promptAudioId": "a_tawdi", "promptScript": "ܬܘܕܝ", "correctAnswer": "tawdi", "acceptedVariants": ["tawdi", "taudi"], "options": null},
             {"id": 83, "phase": "mixed", "type": "multiple_choice", "order": 1, "promptText": "Com dius 'hola' en arameu?", "promptAudioId": null, "promptScript": null, "correctAnswer": "shlama", "acceptedVariants": ["shlama"], "options": ["shlama", "tawdi", "aleph", "beth"]},
-            {"id": 84, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu 'gràcies' en arameu", "promptAudioId": null, "promptScript": null, "correctAnswer": "tawdi", "acceptedVariants": ["tawdi", "taudi"], "options": null}
+            {"id": 84, "phase": "mixed", "type": "type_transliteration", "order": 2, "promptText": "Escriu 'gràcies' en arameu", "promptAudioId": null, "promptScript": null, "correctAnswer": "tawdi", "acceptedVariants": ["tawdi", "taudi"], "options": null},
+            {"id": 97, "phase": "mixed", "type": "listen_repeat", "order": 3, "promptText": "Escolta i repeteix: 'shlama'", "promptAudioId": "a_shlama", "promptScript": "ܫܠܡܐ", "correctAnswer": "shlama", "acceptedVariants": ["shlama", "schlama"], "options": null}
           ]
         }
       ]
@@ -238,6 +251,13 @@
     {"id": 21, "transliteration": "shin", "script": "ܫ", "meaningCa": "vint-i-unena lletra", "audioId": "a_shin", "unitId": 3, "grammarNote": null},
     {"id": 22, "transliteration": "taw", "script": "ܬ", "meaningCa": "vint-i-dosena lletra (última)", "audioId": "a_taw", "unitId": 3, "grammarNote": "Pot ser oclusiva /t/ o fricativa /θ/."},
     {"id": 23, "transliteration": "shlama", "script": "ܫܠܡܐ", "meaningCa": "pau, hola (salutació)", "audioId": "a_shlama", "unitId": 3, "grammarNote": "De l'arrel sh-l-m (pau, completesa). Salutació habitual."},
-    {"id": 24, "transliteration": "tawdi", "script": "ܬܘܕܝ", "meaningCa": "gràcies", "audioId": "a_tawdi", "unitId": 3, "grammarNote": "De l'arrel t-w-d (agrair, confessar)."}
+    {"id": 24, "transliteration": "tawdi", "script": "ܬܘܕܝ", "meaningCa": "gràcies", "audioId": "a_tawdi", "unitId": 3, "grammarNote": "De l'arrel t-w-d (agrair, confessar)."},
+    {"id": 25, "transliteration": "malka", "script": "ܡܠܟܐ", "meaningCa": "rei", "audioId": "a_malka", "unitId": 3, "grammarNote": null},
+    {"id": 26, "transliteration": "ktav", "script": "ܟܬܒ", "meaningCa": "escriptura", "audioId": "a_ktav", "unitId": 3, "grammarNote": null},
+    {"id": 27, "transliteration": "yoma", "script": "ܝܘܡܐ", "meaningCa": "dia", "audioId": "a_yoma", "unitId": 3, "grammarNote": null},
+    {"id": 28, "transliteration": "leyla", "script": "ܠܝܠܐ", "meaningCa": "nit", "audioId": "a_leyla", "unitId": 3, "grammarNote": null},
+    {"id": 29, "transliteration": "ar'a", "script": "ܐܪܥܐ", "meaningCa": "terra", "audioId": "a_ara", "unitId": 3, "grammarNote": null},
+    {"id": 30, "transliteration": "shmaya", "script": "ܫܡܝܐ", "meaningCa": "cel", "audioId": "a_shmaya", "unitId": 3, "grammarNote": null},
+    {"id": 31, "transliteration": "bara", "script": "ܒܪܐ", "meaningCa": "fill", "audioId": "a_bara", "unitId": 3, "grammarNote": null}
   ]
 }
