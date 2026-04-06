@@ -182,23 +182,22 @@ private fun UnitHeader(
     onToggle: () -> Unit,
 ) {
     val spacing = LocalSpacing.current
-    val allDone = completedCount == totalCount
-    val headerAlpha = if (isLocked) 0.4f else 1f
+    val allDone = completedCount == totalCount && totalCount > 0
 
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .alpha(headerAlpha)
+            .alpha(if (isLocked) 0.5f else 1f)
             .clickable(onClick = onToggle),
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(
             containerColor = when {
-                allDone -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f)
-                isLocked -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.2f)
-                else -> MaterialTheme.colorScheme.surface
+                allDone -> MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.5f)
+                isLocked -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f)
+                else -> MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)
             },
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = if (isExpanded) 2.dp else 0.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = if (isExpanded) 2.dp else 1.dp),
     ) {
         Row(
             modifier = Modifier
@@ -214,19 +213,21 @@ private fun UnitHeader(
                     color = MaterialTheme.colorScheme.onBackground,
                 )
                 Text(
-                    text = if (isLocked) "\uD83D\uDD12 $totalCount lliçons" else "$completedCount / $totalCount",
+                    text = when {
+                        isLocked -> "$totalCount lliçons"
+                        allDone -> "\u2713 $totalCount / $totalCount"
+                        else -> "$completedCount / $totalCount lliçons"
+                    },
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
                     modifier = Modifier.padding(top = 2.dp),
                 )
             }
-            if (!isLocked) {
-                Text(
-                    text = if (isExpanded) "\u25B2" else "\u25BC",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.4f),
-                )
-            }
+            Text(
+                text = if (isExpanded) "\u25B2" else "\u25BC",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.4f),
+            )
         }
     }
 }
@@ -258,9 +259,9 @@ private fun LessonCard(
         ),
         colors = CardDefaults.cardColors(
             containerColor = if (isCurrent) {
-                MaterialTheme.colorScheme.surface
+                MaterialTheme.colorScheme.primary.copy(alpha = 0.12f)
             } else {
-                MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
+                MaterialTheme.colorScheme.surface
             },
         ),
     ) {

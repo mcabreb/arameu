@@ -22,7 +22,7 @@ import com.arameu.data.entity.VocabularyProgress
         LessonProgress::class,
         VocabularyProgress::class,
     ],
-    version = 1,
+    version = 2,
     exportSchema = false,
 )
 abstract class ArameuDatabase : RoomDatabase() {
@@ -40,7 +40,8 @@ abstract class ArameuDatabase : RoomDatabase() {
                     context.applicationContext,
                     ArameuDatabase::class.java,
                     "arameu.db",
-                ).build().also { INSTANCE = it }
+                ).fallbackToDestructiveMigration()
+                .build().also { INSTANCE = it }
             }
         }
 
