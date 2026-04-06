@@ -88,6 +88,7 @@ class MainActivity : ComponentActivity() {
                             LessonScreen(
                                 viewModel = lessonViewModel,
                                 onFinished = onFinished,
+                                onBack = onFinished,
                                 onPlayAudio = { audioId ->
                                     // Resolve audioId to asset path and play
                                     // Audio IDs are like "a_aleph" → "audio/unit1/a-aleph.mp3"

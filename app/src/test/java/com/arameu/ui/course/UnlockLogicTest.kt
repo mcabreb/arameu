@@ -65,6 +65,8 @@ class UnlockLogicTest {
             override suspend fun saveLessonProgress(progress: LessonProgress) {}
             override suspend fun getVocabularyProgress(vocabId: Int): VocabularyProgress? = null
             override suspend fun upsertVocabularyProgress(progress: VocabularyProgress) {}
+            override suspend fun clearAllLessonProgress() {}
+            override suspend fun clearAllVocabularyProgress() {}
         }
         return CourseMapViewModel(CourseRepository(courseDao), ProgressRepository(progressDao))
     }

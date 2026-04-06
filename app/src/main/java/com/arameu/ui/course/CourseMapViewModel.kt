@@ -82,4 +82,10 @@ class CourseMapViewModel(
             }.collect { _uiState.value = it }
         }
     }
+
+    fun resetProgress() {
+        viewModelScope.launch {
+            progressRepository.resetAllProgress()
+        }
+    }
 }

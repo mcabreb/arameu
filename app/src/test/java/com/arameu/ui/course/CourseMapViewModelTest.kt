@@ -70,6 +70,8 @@ class CourseMapViewModelTest {
             override suspend fun saveLessonProgress(progress: LessonProgress) {}
             override suspend fun getVocabularyProgress(vocabId: Int): VocabularyProgress? = null
             override suspend fun upsertVocabularyProgress(progress: VocabularyProgress) {}
+            override suspend fun clearAllLessonProgress() {}
+            override suspend fun clearAllVocabularyProgress() {}
         }
         return CourseMapViewModel(
             courseRepository = CourseRepository(courseDao),

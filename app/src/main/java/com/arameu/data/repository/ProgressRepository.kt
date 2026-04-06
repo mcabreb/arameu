@@ -12,6 +12,11 @@ class ProgressRepository(private val progressDao: ProgressDao) {
     fun getAllProgress(): Flow<List<LessonProgress>> =
         progressDao.getAllLessonProgress()
 
+    suspend fun resetAllProgress() {
+        progressDao.clearAllLessonProgress()
+        progressDao.clearAllVocabularyProgress()
+    }
+
     suspend fun saveLessonResult(lessonId: Int, score: Int) {
         progressDao.saveLessonProgress(
             LessonProgress(

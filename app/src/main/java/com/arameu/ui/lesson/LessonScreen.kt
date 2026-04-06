@@ -4,8 +4,10 @@ import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,12 +16,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.arameu.R
 import com.arameu.ui.exercise.IntroScreen
 import com.arameu.ui.exercise.ListenRepeatExercise
 import com.arameu.ui.exercise.MatchingExercise
@@ -32,6 +37,7 @@ import com.arameu.ui.theme.LocalSpacing
 fun LessonScreen(
     viewModel: LessonViewModel,
     onFinished: () -> Unit,
+    onBack: () -> Unit = onFinished,
     modifier: Modifier = Modifier,
     onPlayAudio: (String) -> Unit = {},
 ) {
@@ -50,6 +56,22 @@ fun LessonScreen(
 
         is LessonUiState.Active -> {
             Column(modifier = modifier.fillMaxSize()) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = spacing.contentPadding, vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text(
+                        text = "\u2190 ${stringResource(R.string.btn_back)}",
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier
+                            .clickable(onClick = onBack)
+                            .padding(8.dp),
+                    )
+                }
+
                 LinearProgressIndicator(
                     progress = { (s.exerciseIndex.toFloat() / s.totalExercises).coerceIn(0f, 1f) },
                     modifier = Modifier.fillMaxWidth().padding(horizontal = spacing.contentPadding),

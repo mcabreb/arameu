@@ -24,4 +24,10 @@ interface ProgressDao {
 
     @Upsert
     suspend fun upsertVocabularyProgress(progress: VocabularyProgress)
+
+    @Query("DELETE FROM lesson_progress")
+    suspend fun clearAllLessonProgress()
+
+    @Query("DELETE FROM vocabulary_progress")
+    suspend fun clearAllVocabularyProgress()
 }

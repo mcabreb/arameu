@@ -44,6 +44,10 @@
 
     <!-- Course map -->
     <string name="course_map_title">Curs</string>
+    <string name="course_restart">Reinicia el curs</string>
+    <string name="course_restart_confirm">Segur que vols reiniciar? Es perdrà tot el progrés.</string>
+    <string name="btn_cancel">Cancel·la</string>
+    <string name="btn_confirm">Confirma</string>
     <string name="unit_locked">Unitat bloquejada</string>
     <string name="unit_completed">Unitat completada</string>
 

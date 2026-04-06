@@ -68,6 +68,8 @@ class LessonViewModelTest {
             override suspend fun saveLessonProgress(progress: LessonProgress) { savedProgress = progress }
             override suspend fun getVocabularyProgress(vocabId: Int): VocabularyProgress? = null
             override suspend fun upsertVocabularyProgress(progress: VocabularyProgress) {}
+            override suspend fun clearAllLessonProgress() {}
+            override suspend fun clearAllVocabularyProgress() {}
         }
         return LessonViewModel(
             lessonId = lessonId,
