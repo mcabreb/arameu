@@ -1,7 +1,7 @@
 # E2-S04: Implement Repositories
 
 ## Status
-To Do
+Done
 
 ## Epic
 E2 - Data Layer & Content Pipeline
@@ -18,13 +18,13 @@ S
 This is a thin layer for MVP. No caching, no complex logic — just a clean API between ViewModels and Room.
 
 ## Acceptance Criteria
-- [ ] CourseRepository returns all units as Flow<List<Unit>>
-- [ ] CourseRepository returns lessons for a unit as Flow<List<Lesson>>
-- [ ] CourseRepository returns exercises for a lesson (ordered by phase, then order)
-- [ ] CourseRepository returns vocabulary for a unit
-- [ ] ProgressRepository reads lesson progress by lessonId
-- [ ] ProgressRepository saves lesson completion (lessonId, score, timestamp)
-- [ ] Both repositories tested against in-memory Room database
+- [x] CourseRepository returns all units as Flow<List<Unit>>
+- [x] CourseRepository returns lessons for a unit as Flow<List<Lesson>>
+- [x] CourseRepository returns exercises for a lesson (ordered by phase, then order)
+- [x] CourseRepository returns vocabulary for a unit
+- [x] ProgressRepository reads lesson progress by lessonId
+- [x] ProgressRepository saves lesson completion (lessonId, score, timestamp)
+- [x] Both repositories tested against in-memory Room database
 
 ## Tasks
 - **T1: Create CourseRepository** — In `data/repository/CourseRepository.kt`. Constructor takes `CourseDao`. Expose: `fun getUnits(): Flow<List<Unit>>`, `fun getLessons(unitId: Int): Flow<List<Lesson>>`, `suspend fun getExercises(lessonId: Int): List<Exercise>`, `fun getVocabulary(unitId: Int): Flow<List<Vocabulary>>`. Parse JSON fields (options, acceptedVariants) from String to List<String> here.
@@ -38,3 +38,20 @@ This is a thin layer for MVP. No caching, no complex logic — just a clean API 
 
 ## Dependencies
 - E2-S01 (Room Database & Entities) -- provides the database, entities, and DAOs that repositories wrap.
+
+## Implementation Summary
+
+**Files Created/Modified:**
+- `app/src/main/java/com/arameu/data/repository/CourseRepository.kt` — Thin wrapper over CourseDao (~16 lines)
+- `app/src/main/java/com/arameu/data/repository/ProgressRepository.kt` — Progress read/write with timestamp (~22 lines)
+- `app/src/test/java/com/arameu/data/repository/CourseRepositoryTest.kt` — 6 tests with FakeCourseDao
+- `app/src/test/java/com/arameu/data/repository/ProgressRepositoryTest.kt` — 4 tests with FakeProgressDao
+
+**Key Decisions:**
+- Kept repositories as thin pass-through for MVP — no caching or transformation
+- JSON field parsing deferred to UI layer — repositories return raw entities
+- Used fake DAOs for testing instead of in-memory Room (faster, no Android dependency)
+- saveLessonResult uses System.currentTimeMillis() for timestamp
+
+**Tests:** 10 new tests, all passing
+**Date:** 2026-04-06
