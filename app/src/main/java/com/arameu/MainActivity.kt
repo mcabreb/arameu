@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
@@ -44,14 +45,19 @@ class MainActivity : ComponentActivity() {
         val courseRepository = CourseRepository(db.courseDao())
         val progressRepository = ProgressRepository(db.progressDao())
 
-        // Load content from JSON into Room on first launch
+        // Load content from JSON into Room before showing UI
         val contentLoader = ContentLoader(this, db.courseDao(), prefs)
-        lifecycleScope.launch { contentLoader.loadIfNeeded() }
+        val contentReady = mutableStateOf(false)
+        lifecycleScope.launch {
+            contentLoader.loadIfNeeded()
+            contentReady.value = true
+        }
 
         setContent {
             ArameuTheme {
                 val navController = rememberNavController()
-                val courseMapViewModel = remember {
+                val isReady = contentReady.value
+                val courseMapViewModel = remember(isReady) {
                     CourseMapViewModel(courseRepository, progressRepository)
                 }
 
