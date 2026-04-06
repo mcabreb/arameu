@@ -20,6 +20,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.arameu.ui.exercise.IntroScreen
+import com.arameu.ui.exercise.ListenRepeatExercise
 import com.arameu.ui.exercise.MatchingExercise
 import com.arameu.ui.exercise.MultipleChoiceExercise
 import com.arameu.ui.exercise.SummaryScreen
@@ -31,6 +33,7 @@ fun LessonScreen(
     viewModel: LessonViewModel,
     onFinished: () -> Unit,
     modifier: Modifier = Modifier,
+    onPlayAudio: (String) -> Unit = {},
 ) {
     val state by viewModel.uiState.collectAsState()
     val spacing = LocalSpacing.current
@@ -62,7 +65,13 @@ fun LessonScreen(
                     label = "exercise_transition",
                 ) { _ ->
                     val exercise = s.currentExercise
-                    when (exercise.type) {
+                    if (s.phase == "intro" && exercise.promptScript != null) {
+                        IntroScreen(
+                            exercise = exercise,
+                            onPlayAudio = onPlayAudio,
+                            onContinue = { viewModel.onAnswer(true) },
+                        )
+                    } else when (exercise.type) {
                         "multiple_choice" -> MultipleChoiceExercise(
                             exercise = exercise,
                             onAnswer = { isCorrect -> viewModel.onAnswer(isCorrect) },
@@ -76,6 +85,11 @@ fun LessonScreen(
                         "type_transliteration" -> TypeTransliterationExercise(
                             exercise = exercise,
                             onAnswer = { isCorrect -> viewModel.onAnswer(isCorrect) },
+                        )
+                        "listen_repeat" -> ListenRepeatExercise(
+                            exercise = exercise,
+                            onPlayAudio = onPlayAudio,
+                            onAnswer = { viewModel.onAnswer(true) },
                         )
                         else -> MultipleChoiceExercise(
                             exercise = exercise,
