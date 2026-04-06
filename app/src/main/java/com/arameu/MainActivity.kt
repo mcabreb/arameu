@@ -24,6 +24,8 @@ import com.arameu.navigation.ArameuNavGraph
 import com.arameu.navigation.Routes
 import com.arameu.ui.course.CourseMapScreen
 import com.arameu.ui.course.CourseMapViewModel
+import com.arameu.ui.lesson.LessonScreen
+import com.arameu.ui.lesson.LessonViewModel
 import com.arameu.ui.theme.ArameuTheme
 
 class MainActivity : ComponentActivity() {
@@ -67,9 +69,14 @@ class MainActivity : ComponentActivity() {
                             )
                         },
                         lessonScreen = { lessonId, onFinished ->
-                            // Placeholder — will be implemented in E4
-                            PlaceholderLessonScreen(
+                            val lessonViewModel = LessonViewModel(
                                 lessonId = lessonId,
+                                courseRepository = courseRepository,
+                                progressRepository = progressRepository,
+                            )
+                            LessonScreen(
+                                viewModel = lessonViewModel,
+                                onFinished = onFinished,
                                 modifier = Modifier.padding(innerPadding),
                             )
                         },
