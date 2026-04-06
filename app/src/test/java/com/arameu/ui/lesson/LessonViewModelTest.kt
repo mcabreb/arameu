@@ -87,13 +87,17 @@ class LessonViewModelTest {
     }
 
     @Test
-    fun `tracks correct answers`() = runTest {
+    fun `tracks correct answers for scored exercises only`() = runTest {
         val vm = createViewModel()
         advanceUntilIdle()
-        vm.onAnswer(isCorrect = true)
+        vm.onAnswer(isCorrect = true) // intro — not scored
         advanceUntilIdle()
         val active = vm.uiState.value as LessonUiState.Active
-        assertEquals(1, active.correctCount)
+        assertEquals(0, active.correctCount) // intro doesn't count
+        vm.onAnswer(isCorrect = true) // guided — scored
+        advanceUntilIdle()
+        val active2 = vm.uiState.value as LessonUiState.Active
+        assertEquals(1, active2.correctCount)
     }
 
     @Test
@@ -107,19 +111,19 @@ class LessonViewModelTest {
     }
 
     @Test
-    fun `calculates score as percentage`() = runTest {
+    fun `calculates score excluding intro exercises`() = runTest {
         val vm = createViewModel()
         advanceUntilIdle()
-        vm.onAnswer(true)  // intro
+        vm.onAnswer(true)  // intro — not scored
         advanceUntilIdle()
-        vm.onAnswer(true)  // guided
+        vm.onAnswer(true)  // guided — scored, correct
         advanceUntilIdle()
-        vm.onAnswer(false) // mixed
+        vm.onAnswer(false) // mixed — scored, incorrect
         advanceUntilIdle()
         val state = vm.uiState.value
         assertTrue("Expected Complete, got $state", state is LessonUiState.Complete)
         val complete = state as LessonUiState.Complete
-        assertEquals(67, complete.score) // 2/3 = 66.67 → 67
+        assertEquals(50, complete.score) // 1/2 scored exercises correct
     }
 
     @Test
@@ -135,7 +139,7 @@ class LessonViewModelTest {
         assertNotNull(savedProgress)
         assertEquals(1, savedProgress!!.lessonId)
         assertTrue(savedProgress!!.completed)
-        assertEquals(100, savedProgress!!.score)
+        assertEquals(100, savedProgress!!.score) // 2/2 scored exercises (intro excluded)
     }
 
     @Test

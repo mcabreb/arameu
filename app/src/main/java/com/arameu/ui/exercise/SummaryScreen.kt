@@ -15,6 +15,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.arameu.R
 import com.arameu.data.entity.Exercise
 import com.arameu.ui.theme.LocalSpacing
 import com.arameu.ui.theme.Terracotta
@@ -35,7 +37,7 @@ fun SummaryScreen(
         verticalArrangement = Arrangement.spacedBy(spacing.elementSpacing),
     ) {
         Text(
-            text = "Has après:",
+            text = stringResource(R.string.lesson_summary_title),
             style = MaterialTheme.typography.headlineMedium,
             color = MaterialTheme.colorScheme.onBackground,
         )
@@ -76,7 +78,7 @@ fun SummaryScreen(
             colors = ButtonDefaults.buttonColors(containerColor = Terracotta),
         ) {
             Text(
-                text = "Continua",
+                text = stringResource(R.string.btn_continue),
                 style = MaterialTheme.typography.labelLarge,
             )
         }

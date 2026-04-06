@@ -22,6 +22,7 @@ class LessonViewModel(
     private var exercises: List<Exercise> = emptyList()
     private var currentIndex = 0
     private var correctCount = 0
+    private var scoredCount = 0
 
     init {
         viewModelScope.launch {
@@ -41,12 +42,17 @@ class LessonViewModel(
     }
 
     fun onAnswer(isCorrect: Boolean) {
-        if (isCorrect) correctCount++
+        val exercise = exercises[currentIndex]
+        val isScored = exercise.phase != "intro" && exercise.type != "listen_repeat"
+        if (isScored) {
+            scoredCount++
+            if (isCorrect) correctCount++
+        }
         currentIndex++
 
         if (currentIndex >= exercises.size) {
-            val score = if (exercises.isNotEmpty()) {
-                (correctCount.toFloat() / exercises.size * 100).roundToInt()
+            val score = if (scoredCount > 0) {
+                (correctCount.toFloat() / scoredCount * 100).roundToInt()
             } else 0
 
             viewModelScope.launch {
@@ -71,10 +77,14 @@ class LessonViewModel(
         }
     }
 
-    private fun phaseOrder(exercise: Exercise): Int = when (exercise.phase) {
-        "intro" -> 0
-        "guided" -> 1
-        "mixed" -> 2
-        else -> 3
+    private fun phaseOrder(exercise: Exercise): Int {
+        // Listen_repeat exercises sort after mixed regardless of their phase tag
+        if (exercise.type == "listen_repeat") return 3
+        return when (exercise.phase) {
+            "intro" -> 0
+            "guided" -> 1
+            "mixed" -> 2
+            else -> 4
+        }
     }
 }

@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.media3.common.AudioAttributes
 import androidx.media3.common.C
 import androidx.media3.common.MediaItem
+import androidx.media3.common.PlaybackException
 import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 
@@ -18,7 +19,13 @@ class AudioManager(context: Context) {
                 .build(),
             true,
         )
-        .build()
+        .build().also { p ->
+            p.addListener(object : Player.Listener {
+                override fun onPlayerError(error: PlaybackException) {
+                    Log.w(TAG, "Playback error: ${error.message}")
+                }
+            })
+        }
 
     fun play(assetPath: String) {
         try {

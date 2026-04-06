@@ -55,11 +55,10 @@ fun MatchingExercise(
     val leftItems = remember(exercise.id) { pairs.map { it.left }.shuffled() }
     val rightItems = remember(exercise.id) { pairs.map { it.right }.shuffled() }
     val matched = remember { mutableStateListOf<Int>() }
+    val mistakenPairs = remember { mutableStateListOf<Int>() }
     var selectedLeft by remember { mutableStateOf<String?>(null) }
     var selectedRight by remember { mutableStateOf<String?>(null) }
     var incorrectFlash by remember { mutableStateOf(false) }
-    var hadMistake by remember { mutableStateOf(false) }
-    var mistakeCount by remember { mutableIntStateOf(0) }
 
     // Check match when both selected
     LaunchedEffect(selectedLeft, selectedRight) {
@@ -74,11 +73,13 @@ fun MatchingExercise(
                 selectedRight = null
                 if (matched.size == pairs.size) {
                     delay(500)
-                    onComplete(mistakeCount == 0)
+                    val correctOnFirst = pairs.size - mistakenPairs.distinct().size
+                    onComplete(correctOnFirst == pairs.size)
                 }
             } else {
-                hadMistake = true
-                mistakeCount++
+                // Track which pairs had mistakes (by left item attempted)
+                val attemptedPairIdx = pairs.indexOfFirst { it.left == l }
+                if (attemptedPairIdx >= 0) mistakenPairs.add(attemptedPairIdx)
                 incorrectFlash = true
                 delay(500)
                 incorrectFlash = false

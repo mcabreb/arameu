@@ -22,8 +22,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import com.arameu.R
 import com.arameu.data.entity.Exercise
 import com.arameu.ui.theme.LocalSpacing
 import com.arameu.ui.theme.Terracotta
@@ -101,7 +103,7 @@ fun TypeTransliterationExercise(
             enabled = !showFeedback && userInput.isNotBlank(),
             colors = ButtonDefaults.buttonColors(containerColor = Terracotta),
         ) {
-            Text("Comprova")
+            Text(stringResource(R.string.btn_check))
         }
 
         if (showFeedback) {
@@ -114,7 +116,7 @@ fun TypeTransliterationExercise(
                 )
             } else {
                 Text(
-                    text = "La resposta és: ${exercise.correctAnswer}",
+                    text = stringResource(R.string.feedback_answer_is, exercise.correctAnswer),
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.onBackground,
                 )

@@ -5,7 +5,8 @@
 
     <!-- Welcome -->
     <string name="welcome_title">Benvinguda a Arameu</string>
-    <string name="welcome_subtitle">Descobreix l\'arameu bíblic</string>
+    <string name="welcome_subtitle">Arameu bíblic</string>
+    <string name="welcome_description">Un viatge per aprendre arameu bíblic, pas a pas.</string>
 
     <!-- Navigation -->
     <string name="btn_start">Comença</string>
@@ -30,6 +31,11 @@
     <string name="feedback_incorrect">No del tot</string>
     <string name="feedback_try_again">Torna-ho a provar</string>
     <string name="feedback_got_it">Sí, l\'he encertat</string>
+    <string name="feedback_answer_is">La resposta és: %1$s</string>
+
+    <!-- Exercise -->
+    <string name="btn_check">Comprova</string>
+    <string name="btn_repeat">Repeteix</string>
 
     <!-- Lesson -->
     <string name="lesson_summary_title">Has après:</string>

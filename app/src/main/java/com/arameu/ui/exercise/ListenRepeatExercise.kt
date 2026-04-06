@@ -19,6 +19,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.arameu.R
 import com.arameu.data.entity.Exercise
 import com.arameu.ui.theme.LocalSpacing
 import com.arameu.ui.theme.Terracotta
@@ -82,7 +84,7 @@ fun ListenRepeatExercise(
                 onClick = { exercise.promptAudioId?.let { onPlayAudio(it) } },
                 modifier = Modifier.weight(1f),
             ) {
-                Text("Repeteix")
+                Text(stringResource(R.string.btn_repeat))
             }
 
             Button(
@@ -90,7 +92,7 @@ fun ListenRepeatExercise(
                 modifier = Modifier.weight(1f),
                 colors = ButtonDefaults.buttonColors(containerColor = Terracotta),
             ) {
-                Text("Sí, l'he encertat")
+                Text(stringResource(R.string.feedback_got_it))
             }
         }
     }

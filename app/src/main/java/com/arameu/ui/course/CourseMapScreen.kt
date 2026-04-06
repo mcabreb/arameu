@@ -28,6 +28,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.arameu.R
 import com.arameu.ui.theme.LocalSpacing
 
 @Composable
@@ -175,7 +177,7 @@ private fun LessonCard(
                 )
                 if (isCurrent) {
                     Text(
-                        text = "Continua",
+                        text = stringResource(R.string.btn_continue),
                         style = MaterialTheme.typography.labelLarge,
                         color = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.padding(top = 4.dp),

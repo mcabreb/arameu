@@ -24,13 +24,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.rememberNavController
+import androidx.lifecycle.lifecycleScope
 import com.arameu.audio.AudioManager
-import com.arameu.audio.AudioPathResolver
 import com.arameu.data.ArameuDatabase
 import com.arameu.data.ContentLoader
 import com.arameu.data.repository.CourseRepository
 import com.arameu.data.repository.ProgressRepository
-import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import com.arameu.navigation.ArameuNavGraph
 import com.arameu.navigation.Routes
@@ -60,7 +59,7 @@ class MainActivity : ComponentActivity() {
 
         // Load content from JSON into Room on first launch
         val contentLoader = ContentLoader(this, db.courseDao(), prefs)
-        MainScope().launch { contentLoader.loadIfNeeded() }
+        lifecycleScope.launch { contentLoader.loadIfNeeded() }
 
         setContent {
             ArameuTheme {
@@ -169,7 +168,7 @@ fun WelcomeScreen(
         Spacer(modifier = Modifier.height(12.dp))
 
         Text(
-            text = "Arameu b\u00edblic",
+            text = stringResource(R.string.welcome_subtitle),
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.primary,
         )
@@ -177,7 +176,7 @@ fun WelcomeScreen(
         Spacer(modifier = Modifier.height(24.dp))
 
         Text(
-            text = "Un viatge per aprendre arameu b\u00edblic, pas a pas.",
+            text = stringResource(R.string.welcome_description),
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f),
             modifier = Modifier.padding(horizontal = 16.dp),

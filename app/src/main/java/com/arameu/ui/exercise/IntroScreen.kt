@@ -24,6 +24,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.arameu.R
 import com.arameu.data.entity.Exercise
 import com.arameu.ui.theme.LocalSpacing
 import com.arameu.ui.theme.Terracotta
@@ -111,7 +113,7 @@ fun IntroScreen(
                 modifier = Modifier.fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(containerColor = Terracotta),
             ) {
-                Text("Continua")
+                Text(stringResource(R.string.btn_continue))
             }
         }
     }
