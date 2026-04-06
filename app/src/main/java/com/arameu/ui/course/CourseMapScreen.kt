@@ -34,7 +34,11 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.arameu.R
+import com.arameu.ui.theme.LighterParchment
 import com.arameu.ui.theme.LocalSpacing
+import com.arameu.ui.theme.MutedGold
+import com.arameu.ui.theme.Parchment
+import com.arameu.ui.theme.Terracotta
 
 @Composable
 fun CourseMapScreen(
@@ -84,13 +88,17 @@ fun CourseMapScreen(
             LaunchedEffect(s.currentLessonId) {
                 if (s.currentLessonId != null) {
                     for (unit in s.units) {
-                        val hasCurrent = unit.lessons.any { it.id == s.currentLessonId }
-                        if (hasCurrent) {
+                        if (unit.lessons.any { it.id == s.currentLessonId }) {
                             expandedUnits[unit.id] = true
                         }
                     }
                 }
             }
+
+            // Determine which unit is the "active" one (contains current lesson)
+            val activeUnitId = s.units.firstOrNull { unit ->
+                unit.lessons.any { it.id == s.currentLessonId }
+            }?.id
 
             LazyColumn(
                 state = listState,
@@ -108,7 +116,7 @@ fun CourseMapScreen(
                         Text(
                             text = "\u0710  Arameu",
                             style = MaterialTheme.typography.titleLarge,
-                            color = MaterialTheme.colorScheme.primary.copy(alpha = 0.6f),
+                            color = Terracotta.copy(alpha = 0.6f),
                         )
                     }
                     Spacer(modifier = Modifier.height(spacing.elementSpacing))
@@ -118,21 +126,30 @@ fun CourseMapScreen(
                     val completedCount = unit.lessons.count { it.isCompleted }
                     val totalCount = unit.lessons.size
                     val hasAnyUnlocked = unit.lessons.any { it.isUnlocked || it.isCompleted }
+                    val allDone = completedCount == totalCount && totalCount > 0
+                    val isActive = unit.id == activeUnitId
+                    val isLocked = !hasAnyUnlocked
                     val isExpanded = expandedUnits[unit.id] ?: false
 
+                    // Unit header
                     item(key = "unit-${unit.id}") {
+                        val headerState = when {
+                            allDone -> UnitState.COMPLETED
+                            isActive -> UnitState.ACTIVE
+                            isLocked -> UnitState.LOCKED
+                            else -> UnitState.AVAILABLE
+                        }
                         UnitHeader(
-                            unit = unit,
+                            titleCa = unit.titleCa,
                             completedCount = completedCount,
                             totalCount = totalCount,
                             isExpanded = isExpanded,
-                            isLocked = !hasAnyUnlocked,
-                            onToggle = {
-                                expandedUnits[unit.id] = !isExpanded
-                            },
+                            unitState = headerState,
+                            onToggle = { expandedUnits[unit.id] = !isExpanded },
                         )
                     }
 
+                    // Lessons (when expanded)
                     if (isExpanded) {
                         for (lesson in unit.lessons) {
                             item(key = "lesson-${lesson.id}") {
@@ -150,7 +167,9 @@ fun CourseMapScreen(
                         }
                     }
 
-                    item(key = "spacer-${unit.id}") { Spacer(modifier = Modifier.height(spacing.elementSpacing)) }
+                    item(key = "spacer-${unit.id}") {
+                        Spacer(modifier = Modifier.height(spacing.elementSpacing))
+                    }
                 }
 
                 item {
@@ -172,32 +191,42 @@ fun CourseMapScreen(
     }
 }
 
+// --- Unit header states ---
+
+private enum class UnitState { COMPLETED, ACTIVE, AVAILABLE, LOCKED }
+
 @Composable
 private fun UnitHeader(
-    unit: UnitWithProgress,
+    titleCa: String,
     completedCount: Int,
     totalCount: Int,
     isExpanded: Boolean,
-    isLocked: Boolean = false,
+    unitState: UnitState,
     onToggle: () -> Unit,
 ) {
     val spacing = LocalSpacing.current
-    val allDone = completedCount == totalCount && totalCount > 0
 
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .alpha(if (isLocked) 0.5f else 1f)
+            .alpha(if (unitState == UnitState.LOCKED) 0.45f else 1f)
             .clickable(onClick = onToggle),
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(
-            containerColor = when {
-                allDone -> MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.5f)
-                isLocked -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f)
-                else -> MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)
+            containerColor = when (unitState) {
+                UnitState.COMPLETED -> MutedGold.copy(alpha = 0.18f)
+                UnitState.ACTIVE -> Terracotta.copy(alpha = 0.15f)
+                UnitState.AVAILABLE -> LighterParchment.copy(alpha = 0.6f)
+                UnitState.LOCKED -> Parchment
             },
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = if (isExpanded) 2.dp else 1.dp),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = when (unitState) {
+                UnitState.ACTIVE -> 3.dp
+                UnitState.COMPLETED -> 0.dp
+                else -> 1.dp
+            },
+        ),
     ) {
         Row(
             modifier = Modifier
@@ -208,29 +237,44 @@ private fun UnitHeader(
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = unit.titleCa,
+                    text = titleCa,
                     style = MaterialTheme.typography.titleLarge,
-                    color = MaterialTheme.colorScheme.onBackground,
+                    color = when (unitState) {
+                        UnitState.ACTIVE -> Terracotta
+                        UnitState.COMPLETED -> MutedGold.copy(alpha = 0.8f)
+                        else -> MaterialTheme.colorScheme.onBackground
+                    },
                 )
                 Text(
-                    text = when {
-                        isLocked -> "$totalCount lliçons"
-                        allDone -> "\u2713 $totalCount / $totalCount"
-                        else -> "$completedCount / $totalCount lliçons"
+                    text = when (unitState) {
+                        UnitState.COMPLETED -> "\u2713 $totalCount lliçons"
+                        UnitState.ACTIVE -> "$completedCount / $totalCount lliçons"
+                        UnitState.AVAILABLE -> "$completedCount / $totalCount lliçons"
+                        UnitState.LOCKED -> "$totalCount lliçons"
                     },
                     style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
+                    color = when (unitState) {
+                        UnitState.COMPLETED -> MutedGold.copy(alpha = 0.6f)
+                        UnitState.ACTIVE -> Terracotta.copy(alpha = 0.6f)
+                        else -> MaterialTheme.colorScheme.onBackground.copy(alpha = 0.4f)
+                    },
                     modifier = Modifier.padding(top = 2.dp),
                 )
             }
             Text(
                 text = if (isExpanded) "\u25B2" else "\u25BC",
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.4f),
+                color = when (unitState) {
+                    UnitState.ACTIVE -> Terracotta.copy(alpha = 0.5f)
+                    UnitState.COMPLETED -> MutedGold.copy(alpha = 0.5f)
+                    else -> MaterialTheme.colorScheme.onBackground.copy(alpha = 0.3f)
+                },
             )
         }
     }
 }
+
+// --- Lesson card ---
 
 @Composable
 private fun LessonCard(
@@ -239,36 +283,37 @@ private fun LessonCard(
     onClick: (() -> Unit)?,
 ) {
     val spacing = LocalSpacing.current
-    val alpha = when {
-        isCurrent -> 1f
-        lesson.isCompleted -> 0.7f
-        lesson.isUnlocked -> 0.85f
-        else -> 0.3f
-    }
 
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .alpha(alpha)
+            .alpha(
+                when {
+                    isCurrent -> 1f
+                    lesson.isCompleted -> 0.75f
+                    lesson.isUnlocked -> 0.6f
+                    else -> 0.25f
+                }
+            )
             .then(
                 if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier
             ),
-        shape = RoundedCornerShape(12.dp),
+        shape = RoundedCornerShape(10.dp),
         elevation = CardDefaults.cardElevation(
             defaultElevation = if (isCurrent) 4.dp else 0.dp,
         ),
         colors = CardDefaults.cardColors(
-            containerColor = if (isCurrent) {
-                MaterialTheme.colorScheme.primary.copy(alpha = 0.12f)
-            } else {
-                MaterialTheme.colorScheme.surface
+            containerColor = when {
+                isCurrent -> Terracotta.copy(alpha = 0.12f)
+                lesson.isCompleted -> MutedGold.copy(alpha = 0.08f)
+                else -> MaterialTheme.colorScheme.surface
             },
         ),
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(spacing.cardSpacing),
+                .padding(horizontal = spacing.cardSpacing, vertical = 12.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -276,18 +321,22 @@ private fun LessonCard(
                 Text(
                     text = lesson.titleCa,
                     style = if (isCurrent) {
-                        MaterialTheme.typography.titleLarge
-                    } else {
                         MaterialTheme.typography.titleMedium
+                    } else {
+                        MaterialTheme.typography.bodyLarge
                     },
-                    color = MaterialTheme.colorScheme.onSurface,
+                    color = when {
+                        isCurrent -> Terracotta
+                        lesson.isCompleted -> MaterialTheme.colorScheme.onSurface
+                        else -> MaterialTheme.colorScheme.onSurface
+                    },
                 )
                 if (isCurrent) {
                     Text(
                         text = stringResource(R.string.btn_continue),
                         style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.padding(top = 4.dp),
+                        color = Terracotta.copy(alpha = 0.7f),
+                        modifier = Modifier.padding(top = 2.dp),
                     )
                 }
             }
@@ -295,14 +344,14 @@ private fun LessonCard(
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(
                         text = "\u2713",
-                        style = MaterialTheme.typography.titleLarge,
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MutedGold.copy(alpha = 0.7f),
                     )
                     lesson.score?.let { score ->
                         Text(
                             text = "$score%",
                             style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.3f),
+                            color = MutedGold.copy(alpha = 0.4f),
                         )
                     }
                 }
