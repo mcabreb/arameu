@@ -7,8 +7,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import androidx.lifecycle.lifecycleScope
@@ -24,6 +26,8 @@ import com.arameu.ui.course.CourseMapScreen
 import com.arameu.ui.course.CourseMapViewModel
 import com.arameu.ui.lesson.LessonScreen
 import com.arameu.ui.lesson.LessonViewModel
+import com.arameu.ui.components.AlphabetFab
+import com.arameu.ui.components.AlphabetReferenceDialog
 import com.arameu.ui.theme.ArameuTheme
 import com.arameu.ui.welcome.WelcomeScreen
 
@@ -61,7 +65,18 @@ class MainActivity : ComponentActivity() {
                     CourseMapViewModel(courseRepository, progressRepository)
                 }
 
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                var showAlphabetCard by remember { mutableStateOf(false) }
+
+                if (showAlphabetCard) {
+                    AlphabetReferenceDialog(onDismiss = { showAlphabetCard = false })
+                }
+
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    floatingActionButton = {
+                        AlphabetFab(onClick = { showAlphabetCard = true })
+                    },
+                ) { innerPadding ->
                     ArameuNavGraph(
                         navController = navController,
                         startDestination = startDestination,

@@ -66,6 +66,11 @@
     <string name="cd_correct_answer">Resposta correcta</string>
     <string name="cd_wrong_answer">Resposta incorrecta</string>
 
+    <!-- Alphabet reference -->
+    <string name="alphabet_title">Alfabet</string>
+    <string name="alphabet_subtitle">Hebreu \u2192 Siríac</string>
+    <string name="alphabet_close">Tanca</string>
+
     <!-- Hebrew keyboard -->
     <string name="install_hebrew_keyboard">Instal·la un teclat hebreu</string>
 </resources>
