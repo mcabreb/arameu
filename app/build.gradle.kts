@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -9,6 +11,20 @@ plugins {
 android {
     namespace = "com.arameu"
     compileSdk = 35
+
+    signingConfigs {
+        create("release") {
+            val props = Properties()
+            val propsFile = rootProject.file("local.properties")
+            if (propsFile.exists()) {
+                propsFile.inputStream().use { props.load(it) }
+            }
+            storeFile = rootProject.file(props.getProperty("RELEASE_STORE_FILE", ""))
+            storePassword = props.getProperty("RELEASE_STORE_PASSWORD", "")
+            keyAlias = props.getProperty("RELEASE_KEY_ALIAS", "")
+            keyPassword = props.getProperty("RELEASE_KEY_PASSWORD", "")
+        }
+    }
 
     defaultConfig {
         applicationId = "com.arameu"
@@ -24,6 +40,7 @@ android {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

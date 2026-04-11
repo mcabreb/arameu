@@ -12,6 +12,10 @@
 .claude/commands/maya.md
 .maya/
 
+# Keystore
+*.jks
+*.keystore
+
 # Android / Gradle
 *.iml
 .gradle/
@@ -23,3 +27,6 @@
 .externalNativeBuild/
 .cxx/
 app/build/
+
+.claude/commands/maia.md
+.maia/
